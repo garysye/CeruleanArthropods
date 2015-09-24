@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+Eir
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+To crowdfund those who lack monetary access to properly fund medical treatments. 
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+Eir displays profiles, summaries of the patient's treatment, and how much it would be to fund the medical treatment. Anyone in the world is able to fund the treatment on the website. 
 
 ## Problem ##
-  > Describe the problem your product solves.
+Millions of people lack proper resources in funds for very treatable conditions. At the same time, there are people in developed countries who are willing to fund it, especially when there is transparency about where their money is going. 
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+Eir takes out the middle man and makes it very clear where each dollar of a funder's donation is going to, which is the patient. 
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+"We are excited to get this off the ground, raise awareness, and deploy accessible tools to enable others to easily make an impact in one's life." - Taylor
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+Scroll through list of patients, choose however many you would like to fund and for X amount, and donate! 
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+"*Name* has been life changing for me. Without it, I wouldn't have been able to get my tumor removed in time." 
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+ Go to our site! And fund! 
