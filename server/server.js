@@ -1,5 +1,6 @@
 var express = require('express');
 var morgan = require('morgan');
+var bodyParser = require('body-parser');
 
 //Creates and initializes an express application
 var app = express();
