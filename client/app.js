@@ -1,10 +1,10 @@
-var app = angular.module('eir', ['eir.home', 'ngRoute'])
+angular.module('eir', ['eir.home', 'ngRoute'])
 
-app.config(function($routeProvider) {
+.config(function($routeProvider) {
   $routeProvider
   .when('/home', {
-    templateUrl:
-    controller:
+    templateUrl: '/home/home.html',
+    controller: 'homeCtrl'
   })
   // .when('/about', {
   //   templateUrl:
@@ -27,4 +27,7 @@ app.config(function($routeProvider) {
   //   templateUrl:
   //   controller:
   // })
+  .otherwise({ 
+    redirectTo: '/home' 
+  });
 });
