@@ -1,5 +1,6 @@
 var express = require('express');
 var morgan = require('morgan');
+var bodyParser = require('body-parser');
 
 //Creates and initializes an express application
 var app = express();
@@ -9,4 +10,4 @@ app.listen(port);
 //Serve up static files in client folder and other middleware
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '/../client'));
