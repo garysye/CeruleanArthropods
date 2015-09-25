@@ -1,0 +1,29 @@
+{
+  "name": "eir",
+  "version": "1.0.0",
+  "description": "Allows donors to crowdfund medical treatments for patients who lack monetary access to such resources.",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CeruleanArthropods/CeruleanArthropods.git"
+  },
+  "keywords": [
+    "crowdfund",
+    "medical",
+    "patients"
+  ],
+  "author": "Amy Chiu, Benjamin Hoffman, Gary Ye, Taylor Lehman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CeruleanArthropods/CeruleanArthropods/issues"
+  },
+  "homepage": "https://github.com/CeruleanArthropods/CeruleanArthropods#readme",
+  "dependencies": {
+    "body-parser": "^1.14.0",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1"
+  }
+}
