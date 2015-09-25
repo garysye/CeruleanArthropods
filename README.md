@@ -4,9 +4,9 @@
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Amy Chiu
+  - __Scrum Master__: Gary Ye
+  - __Development Team Members__: Taylor Lehman, Ben Hoffman
 
 ## Table of Contents
 
