@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Eir</title>
+
+
+</head>
+<body ng-app="eir">
+  <nav>
+    <a href="example.com">Example</a>
+    <a href="google.com">Google</a>  
+  </nav>
+  
+  <div ng-view></div>
+  
+
+  <footer>
+      Footter, Copyright 2015
+  </footer>
+
+  <!-- Bower dependencies -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>  
+
+  <!-- Main app JS files -->
+  <script src="app.js"></script>
+  <script src="home/home.js"></script>
+
+</body>
+</html>
