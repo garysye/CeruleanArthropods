@@ -1,6 +1,6 @@
-angular.module('eir', ['eir.home', 'eir.profile', 'eir.donate', 'eir.about', 'ngRoute'])
+var app = angular.module('eir', ['eir.home', 'eir.about', 'eir.patients', 'eir.getFunded', 'eir.patientsID', 'eir.donateID','eir.thankYou', 'ngRoute']);
 
-.config(function($routeProvider) {
+app.config(function($routeProvider) {
   $routeProvider
   .when('/home', {
     templateUrl: '/home/home.html',
