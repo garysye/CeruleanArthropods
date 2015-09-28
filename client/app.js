@@ -1,6 +1,4 @@
-angular.module('eir', ['eir.home', 'ngRoute'])
-
-// ben test -- delete this comment
+angular.module('eir', ['eir.home', 'eir.profile', 'eir.donate', 'eir.about', 'ngRoute'])
 
 .config(function($routeProvider) {
   $routeProvider
@@ -8,27 +6,30 @@ angular.module('eir', ['eir.home', 'ngRoute'])
     templateUrl: '/home/home.html',
     controller: 'homeCtrl'
   })
-  // .when('/about', {
-  //   templateUrl:
-  //   controller:
-  // })
-  // .when('/patients', {
-  //   templateUrl:
-  //   controller:
-  // })
-  // .when('/donation', {
-  //   templateUrl:
-  //   controller:
-  // })
-  // .when('/signup', {
-  //   templateUrl:
-  //   controller:
-  // })
-  
-  // .when('/login', {
-  //   templateUrl:
-  //   controller:
-  // })
+  .when('/about', {
+    templateUrl: '/about/about.html'
+    controller: 'aboutCtrl'
+  })
+  .when('/patients', {
+    templateUrl: '/patients/patients.html'
+    controller: 'patientsCtrl'
+  })
+  .when('/get-funded', {
+    templateUrl: '/patients/get-funded.html'
+    controller: 'getFundedCtrl'
+  })
+  .when('/patients/:id', {
+    templateUrl: '/patients/:id.html'
+    controller: 'patientProfileCtrl'
+  })
+  .when('/donate/:id', {
+    templateUrl: '/donate/:id.html'
+    controller: 'donateCtrl'
+  })
+  .when('/thank-you', {
+    templateUrl: '/thank-you.html'
+    controller: 'thankYouCtrl'
+  })
   .otherwise({ 
     redirectTo: '/home' 
   });
