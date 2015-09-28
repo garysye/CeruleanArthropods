@@ -10,7 +10,6 @@ angular.module('eir.patients', [])
   // }
 
   
-  $scope.patients.getPatients();
 
 
 
