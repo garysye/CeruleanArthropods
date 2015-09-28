@@ -1,17 +1,16 @@
 angular.module('eir.patients', [])
 
-.controller('patientsCtrl', function($scope, $http, $routeParams) {
+.controller('patientsCtrl', function($scope, $http, patientsFactory) {
 
-  // $scope.getPatients = function() {
+  $scope.patients = patientsFactory.patients;
 
-  //   $http.get('/classes/patients')
-  //   .success()
-  //   .error()
+  // $scope.patients = {
+  //   patients: [],
+  //   getPatients: function() {}
+  // }
 
-
-  // };
-
-  // $scope.getPatients();
+  
+  $scope.patients.getPatients();
 
 
 
