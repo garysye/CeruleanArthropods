@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css">
+  <!-- Bower dependencies -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script> 
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+  <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script> 
+
   <meta charset="UTF-8">
   <title>Eir</title>
-
 
 </head>
 <body ng-app="eir">
@@ -17,19 +25,16 @@
   
 
   <footer>
-      Footter, Copyright 2015
+      Footer, Copyright 2015
   </footer>
 
-  <!-- Bower dependencies -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-mocks/angular-mocks.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/underscore/underscore.js"></script>  
 
   <!-- Main app JS files -->
-  <script src="app.js"></script>
+  <script src="donate/donate.js"></script>
+  <script src="profile/profile.js"></script>
+  <script src="patients/patients.js"></script>
   <script src="home/home.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>

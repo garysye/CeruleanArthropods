@@ -1,1 +1,11 @@
-styles.css
+.patient {
+
+  padding: 120px 70px 120px 70px;
+  margin: 30px 400px 30px 400px;
+  text-align: center;
+  border-style: thin;
+  border-radius: 7px;
+  border-width: 5px;
+
+
+}
