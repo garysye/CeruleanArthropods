@@ -1,5 +1,7 @@
 angular.module('eir', ['eir.home', 'ngRoute'])
 
+// ben test -- delete this comment
+
 .config(function($routeProvider) {
   $routeProvider
   .when('/home', {
