@@ -26,7 +26,9 @@ module.exports = {
 
     db.query(sqlquery, patientVals, function (err, data){
       if(!err) {
-        res.end(data);
+        res.status(201).send(data);
+      } else {
+        res.status(404).send('<h1>error</h1>');
       }
     });
   },
@@ -35,7 +37,9 @@ module.exports = {
     var query = "SELECT * FROM tbl_patients";
     db.query(query, function(err, data){
       if(!err) {
-        res.end(JSON.stringify(data));
+        res.status(200).send(JSON.stringify(data));
+      } else {
+        res.status(404).send('<h1>error</h1>');
       }
     });
   }
