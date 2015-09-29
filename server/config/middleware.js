@@ -1,11 +1,13 @@
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var session = require('session');
 
 module.exports = function (app, express) {
 
   var patientRouter = express.Router();
   var donationRouter = express.Router();
   var conditionRouter = express.Router();
+  var userRouter = express.Router();
 
 //Serve up static files in client folder and other middleware
   app.use(morgan('dev'));
@@ -21,4 +23,7 @@ module.exports = function (app, express) {
 
   app.use('/classes/conditions', conditionRouter);
   require('../conditions/conditionRoutes')(conditionRouter);
+
+  app.use('/classes/users', userRouter);
+  require('../users/userRoutes')(userRoutes);
 }
