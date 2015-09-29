@@ -37,31 +37,31 @@ module.exports = {
     var form = new formidable.IncomingForm();
     form.uploadDir = __dirname + "/../uploads/";
     form.keepExtensions = true;
-    console.log(module.exports.addNewPatientPhoto);
 
     var insertNewPatient = function(vals) {
       console.log('inserting new patient');
-      var query = "INSERT INTO tbl_patients (first_name, last_name, username, password)"
+      var sqlquery = "INSERT INTO tbl_patients (first_name, last_name, username, \
+        password, condition_id, photo_url, bio, progress, goal, funded) \
+        VALUES ( ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?)";
+
+      db.query(sqlquery, vals, function(err, data){
+        if(!err) {
+          res.status(201).send(data);
+        } else {
+          console.log('error adding patient', err);
+          res.status(500).send('<h1>error adding patient</h1>' + err);
+        }
+      });
     };
 
     form.parse(req, function ( err, fields, files) {
       var oldFilePath = files['photo_id'].path;
-      console.log('here is oldPath', oldFilePath);
-      module.exports.addNewPatientPhoto(oldFilePath, function(path){
-        console.log('inserted and here is path', path);
-        // this is id from photo
-        var insertId = path.insertId;
-
-        module.exports.getPhotoUrlById(insertId, function(photoUrl){
-          var url = photoUrl[0]['photo_url'];
-          console.log('here is photo url', url);
-          var newPatientFields = [fields.first_name, fields.last_name,fields.username,
-            fields.password,fields.condition_id, url,fields.bio, fields.progress,fields.goal, fields.funded];
-          insertNewPatient(newPatientFields);
-
-        });
-      });
-
+      var newPatientFields = [fields.first_name, fields.last_name,fields.username,
+        fields.password, fields.condition_id, oldFilePath,
+        fields.bio, fields.progress,fields.goal, 
+        fields.funded
+      ];
+      insertNewPatient(newPatientFields);
     });
 
 
