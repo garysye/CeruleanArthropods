@@ -1,8 +1,21 @@
 <div class="container-fluid">
   <div class="row">
+
+    <div class="col-xs-6 col-md-4 patient" ng-repeat="patient in patients">
+      <a ng-href="#/patients/{{patient.id}}">
+        <div ng-style="{'background-image': 'url(' + patient.photo_url + ')'}">
+        </div>
+      </a>
+      <p>
+        {{patient.bio}}
+      </p>
+      <h5>${{patient.leftToFund}} left to fund</h5>
+    </div>
+
+
+    <!-- <div class="col-xs-6 col-md-4 patient">.col-xs-6 .col-md-4</div>
     <div class="col-xs-6 col-md-4 patient">.col-xs-6 .col-md-4</div>
     <div class="col-xs-6 col-md-4 patient">.col-xs-6 .col-md-4</div>
-    <div class="col-xs-6 col-md-4 patient">.col-xs-6 .col-md-4</div>
-    <div class="col-xs-6 col-md-4 patient">.col-xs-6 .col-md-4</div>
+    <div class="col-xs-6 col-md-4 patient">.col-xs-6 .col-md-4</div> -->
   </div>
 </div>
