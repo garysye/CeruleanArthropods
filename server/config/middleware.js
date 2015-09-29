@@ -25,6 +25,6 @@ module.exports = function (app, express) {
 
   app.use('/classes/users', userRouter);
 
-  require('../users/userRoutes')(userRoutes);
+  require('../users/userRoutes')(userRouter);
 
 }
