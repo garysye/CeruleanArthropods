@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS tbl_patients (
   condition_id INT(11) NOT NULL,
   photo_id VARCHAR(11) DEFAULT NULL,
   bio TEXT,
-  bank INT(20) DEFAULT 0,
+  progress INT(20) DEFAULT 0,
   goal INT(20) NOT NULL,
   funded TINYINT(1),
   INDEX(photo_id)

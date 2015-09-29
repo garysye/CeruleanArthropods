@@ -10,4 +10,11 @@ router.route('/')
   .get(patientController.getPatients)
   .post(patientController.addNewPatient);
 
+router.param('id', function (req,res,next,id){
+  req.id = id;
+  next();
+});
+
+router.get('/:id', patientController.getPatientById);
+
 };
