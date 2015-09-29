@@ -15,6 +15,17 @@ app.factory('patientsFactory', function ($http) {
       });
   };
 
+  // GET req; this will retrieve all our patients from our db
+  var getPatients = function() {
+    return $http.get('/classes/patients')
+      .then(function(res) {
+        return res.data
+      })
+      .catch(function(err) {
+        console.log('ERROR getPatients: ' + err);
+      });
+  };
+
   // GET req; this will retrieve one specific patient from our db
   var getPatient = function(id) {
     return $http.get('/classes/patients/' + id)
@@ -25,17 +36,6 @@ app.factory('patientsFactory', function ($http) {
         console.log('ERROR getPatient: ' + err);
       });
 
-  };
-
-  // GET req; this will retrieve all our patients from our db
-  var getPatients = function() {
-    return $http.get('/classes/patients')
-      .then(function(res) {
-        return res.data
-      })
-      .catch(function(err) {
-        console.log('ERROR getPatients: ' + err);
-      });
   };
 
   return {
