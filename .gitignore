@@ -30,4 +30,4 @@ server/db/index.js
 node_modules/
 bower_components/
 
-index.js
+server/db/index.js
