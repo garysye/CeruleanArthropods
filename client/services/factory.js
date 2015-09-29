@@ -22,6 +22,26 @@ app.factory('patientsFactory', function ($http) {
       });
   };
 
+
+  // getDonors
+    // get request
+
+  // getCondition
+    // get request
+
+  // submitDonationForm
+    // post request
+    // send back all the info in the post request
+      // on response, display their donation info
+
+  // submitPatientForm
+    // post request
+    // send back all the info in the post request
+      // on response, display the patient's info
+
+
+
+
   return {
     getPatients: getPatients,
     getPatient: getPatient
