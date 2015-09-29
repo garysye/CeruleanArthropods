@@ -1,6 +1,5 @@
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-var session = require('session');
 
 module.exports = function (app, express) {
 
