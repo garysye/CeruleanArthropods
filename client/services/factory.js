@@ -20,24 +20,31 @@ app.factory('patientsFactory', function ($http) {
       .catch(function(err) {
         console.log('ERROR getPatient: ' + err);
       });
+
   };
 
+  // submitPatientForm
+    // post request -- patiendInfoObj
+    // send back all the info (includ id) in the post response
+      // on response, display the patient's info
 
-  // getDonors
-    // get request
 
-  // getCondition
-    // get request
-
+// donors factory (donorsFactory)
   // submitDonationForm
-    // post request
+    // post request -- donationInfoObj
     // send back all the info in the post request
       // on response, display their donation info
+      
+  // getDonors
+    // get request
+  // getDonor -- donor
+    // get request
 
-  // submitPatientForm
-    // post request
-    // send back all the info in the post request
-      // on response, display the patient's info
+
+
+// condition factory (conditionFactory)
+  // getCondition -- conditionID
+    // get request
 
 
 
@@ -45,6 +52,10 @@ app.factory('patientsFactory', function ($http) {
   return {
     getPatients: getPatients,
     getPatient: getPatient
+    // 
+    //
+    //
+    //
   }
 
 
