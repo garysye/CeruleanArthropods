@@ -33,3 +33,5 @@ bower_components/
 
 server/db/index.js
 
+server/uploads
+

@@ -1,36 +1,70 @@
 var db = require('../db/index.js');
+var formidable = require('formidable');
 
 
 module.exports = {
 
-  addNewPatient:function(req, res) {
+  getPhotoUrlById:function(id, cb) {
 
-    var patientVals = [
-      req.body.first_name,
-      req.body.last_name,
-      req.body.username,
-      req.body.password,
-      req.body.condition_id,
-      req.body.photo_id,
-      req.body.bio,
-      req.body.progress,
-      req.body.goal,
-      req.body.funded
-    ];
-    var b = req.body;
+    var query = "SELECT * FROM tbl_patient_photos WHERE id = ?";
 
-    var sqlquery = "INSERT INTO tbl_patients (first_name, last_name, username, \
-      password, condition_id, photo_id, bio, progress, goal, funded) \
-      VALUES ( ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?)";
-
-
-    db.query(sqlquery, patientVals, function (err, data){
+    db.query(query, id, function (err, data) {
       if(!err) {
-        res.status(201).send(data);
-      } else {
-        res.status(404).send('<h1>error</h1>');
+        cb(data);
+      }else {
+        console.log('error selected photo');
+      }
+
+    });
+
+  },
+
+  addNewPatientPhoto:function(url, cb) {
+    var query = "INSERT INTO tbl_patient_photos (photo_url) VALUES( ? )";
+
+    db.query(query, url ,function (err, data) {
+      if(!err) {
+        cb && cb(data);
+      }
+      else {
+        console.log('error adding patient photo');
       }
     });
+  },
+
+  addNewPatient:function(req, res) {
+    console.log('new form post');
+    var form = new formidable.IncomingForm();
+    form.uploadDir = __dirname + "/../uploads/";
+    form.keepExtensions = true;
+    console.log(module.exports.addNewPatientPhoto);
+
+    var insertNewPatient = function(vals) {
+      console.log('inserting new patient');
+      var query = "INSERT INTO tbl_patients (first_name, last_name, username, password)"
+    };
+
+    form.parse(req, function ( err, fields, files) {
+      var oldFilePath = files['photo_id'].path;
+      console.log('here is oldPath', oldFilePath);
+      module.exports.addNewPatientPhoto(oldFilePath, function(path){
+        console.log('inserted and here is path', path);
+        // this is id from photo
+        var insertId = path.insertId;
+
+        module.exports.getPhotoUrlById(insertId, function(photoUrl){
+          var url = photoUrl[0]['photo_url'];
+          console.log('here is photo url', url);
+          var newPatientFields = [fields.first_name, fields.last_name,fields.username,
+            fields.password,fields.condition_id, url,fields.bio, fields.progress,fields.goal, fields.funded];
+          insertNewPatient(newPatientFields);
+
+        });
+      });
+
+    });
+
+
   },
 
   getPatients: function(req, res) {
