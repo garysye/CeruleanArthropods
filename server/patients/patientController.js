@@ -13,14 +13,14 @@ module.exports = {
       req.body.condition_id,
       req.body.photo_id,
       req.body.bio,
-      req.body.bank,
+      req.body.progress,
       req.body.goal,
       req.body.funded
     ];
     var b = req.body;
 
     var sqlquery = "INSERT INTO tbl_patients (first_name, last_name, username, \
-      password, condition_id, photo_id, bio, bank, goal, funded) \
+      password, condition_id, photo_id, bio, progress, goal, funded) \
       VALUES ( ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?)";
 
 
@@ -44,10 +44,11 @@ module.exports = {
     });
   },
 
-  getPatientByName: function(req, res) {
+  getPatientById: function(req, res, cb) {
     var query = "SELECT * FROM tbl_patients WHERE id = ? ";
     db.query(query,req.id, function(err, data){
       if(!err) {
+        cb && cb(data);
         res.status(200).send(JSON.stringify(data));
       } else {
         res.status(404).send('<h1>error</h1>');

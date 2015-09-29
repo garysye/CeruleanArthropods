@@ -3,9 +3,9 @@ var mysql = require('mysql');
 
 // watsi db connect1ion
 var connection = mysql.createConnection({
-  // user     : 'taylor',
-  // password : 'winget',
-  // database : 'watsi'
+  user     : 'taylor',
+  password : 'winget',
+  database : 'watsi'
 });
 
 // export the database
