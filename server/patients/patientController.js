@@ -42,6 +42,17 @@ module.exports = {
         res.status(404).send('<h1>error</h1>');
       }
     });
+  },
+
+  getPatientByName: function(req, res) {
+    var query = "SELECT * FROM tbl_patients WHERE id = ? ";
+    db.query(query,req.id, function(err, data){
+      if(!err) {
+        res.status(200).send(JSON.stringify(data));
+      } else {
+        res.status(404).send('<h1>error</h1>');
+      }
+    });
   }
 
 
