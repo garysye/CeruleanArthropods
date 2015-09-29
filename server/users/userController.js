@@ -38,7 +38,7 @@ module.exports.signup = function (req, res) {
     req.body.condition_id,
     req.body.photo_id,
     req.body.bio,
-    req.body.bank,
+    req.body.progress,
     req.body.goal,
     req.body.funded
   ];
@@ -46,7 +46,7 @@ module.exports.signup = function (req, res) {
 
   // Inserts into SQL database.  If successful, responds with token.  Else, send 404.
   var sqlquery = "INSERT INTO tbl_patients (first_name, last_name, username, \
-    password, condition_id, photo_id, bio, bank, goal, funded) \
+    password, condition_id, photo_id, bio, progress, goal, funded) \
     VALUES ( ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?)";
 
 
