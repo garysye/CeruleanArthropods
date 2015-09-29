@@ -25,5 +25,5 @@ module.exports = function (app, express) {
   require('../conditions/conditionRoutes')(conditionRouter);
 
   app.use('/classes/users', userRouter);
-  require('../users/userRoutes')(userRoutes);
+  require('../users/userRoutes')(userRouter);
 }
