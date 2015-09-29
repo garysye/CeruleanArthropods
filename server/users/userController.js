@@ -8,7 +8,7 @@ module.exports.signin = function (req, res) {
   var password = req.body.password;
 
   // Attempts to find a user with given username
-  var sqlquery = "SELECT * FROM tbl_patients WHERE username = ?";
+  var sqlquery = "SELECT * FROM tbl_users WHERE username = ?";
 
   db.query(sqlquery, username, function (err, data) {
     if( err ) {
@@ -29,32 +29,19 @@ module.exports.signin = function (req, res) {
 
 module.exports.signup = function (req, res) {
 
-  // Parses data into array
-  var patientVals = [
-    req.body.first_name,
-    req.body.last_name,
-    req.body.username,
-    req.body.password,
-    req.body.condition_id,
-    req.body.photo_id,
-    req.body.bio,
-    req.body.progress,
-    req.body.goal,
-    req.body.funded
-  ];
-  var b = req.body;
-
   // Inserts into SQL database.  If successful, responds with token.  Else, send 404.
-  var sqlquery = "INSERT INTO tbl_patients (first_name, last_name, username, \
-    password, condition_id, photo_id, bio, progress, goal, funded) \
-    VALUES ( ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?)";
+  var sqlquery = "INSERT INTO tbl_users (username, password) VALUES ( ?,  ?)";
 
+  var user = {
+    username: req.body.username,
+    password: req.body.password
+  }
 
-  db.query(sqlquery, patientVals, function (err, data){
+  db.query(sqlquery, [req.body.username, req.body.password], function (err, data){
     if( err ) {
       res.status(404).send('Error: signup failed. ' + err);
     } else {
-      var token = jwt.encode(b, secret);
+      var token = jwt.encode(user, secret);
       res.json({token: token});
     }
   });
@@ -68,7 +55,7 @@ module.exports.checkAuth = function (req, res, next) {
   } else {
     var user = jwt.decode(token, secret);
     // Queries for decoded user.  If found, returns 200. Else, sends 404 or 401.
-    var sqlquery = "SELECT * FROM tbl_patients WHERE username = ?";
+    var sqlquery = "SELECT * FROM tbl_users WHERE username = ?";
     db.query(sqlquery, user.username, function (err, data) {
       if( err ) {
         res.status(404).send(err);
