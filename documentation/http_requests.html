@@ -1,7 +1,11 @@
-|      URL           | Verb   | Req Body |                         Result                         |
-|:------------------:|:------:|:--------:|:------------------------------------------------------:|
-| /classes/patients  | GET    | empty    |                               Return JSON of all users |
-| /classes/patients  | POST   | JSON     |            Create new user and return JSON of new user |
-| /classes/users/:id | GET    | empty    |          Return JSON of single user with matching `id` |
-| /classes/users/:id | PUT    | JSON     | Update user with matching `id` and return JSON of user |
-| /classes/users/:id | DELETE | empty    | Delete user with matching `id` and return JSON of user |
+|      URL                 |  Verb  | Body  |           Factory & Method          |           Result                         |
+|:------------------------:|:------:|:-----:|:-----------------------------------:|:------------------------------------------------------|
+| /classes/patients/???    | POST   | ????? | patientsFactory.submitPatientForm   |                              Return JSON of all users |
+| /classes/patients        | GET    | ????? | patientsFactory.getPatients         |           Create new user and return JSON of new user |
+| /classes/patients/:id    | GET    | ????? | patientsFactory.getPatient          |         Return JSON of single user with matching `id` |
+| /classes/donation/???    | POST   | ????? | donorsFactory.submitDonationForm    | Update user with matching `id` and return JSON of user|
+| /classes/patients/:id    | PUT    | ????? | donorsFactory.updatePatientProgress | Delete user with matching `id` and return JSON of user|
+| /classes/donors/         | GET    | ????? | donorsFactory.getDonors             | Delete user with matching `id` and return JSON of user|
+| /classes/donors/:id      | GET    | ????? | donorsFactory.getDonor              | Delete user with matching `id` and return JSON of user|
+| /classes/conditions/:id  | GET    | ????? | conditionFactory.getCondition       | Delete user with matching `id` and return JSON of user|
+| /classes/conditionas     | GET    | ????? | conditionFactory.getConditions      | Delete user with matching `id` and return JSON of user|
