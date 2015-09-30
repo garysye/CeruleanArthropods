@@ -57,7 +57,7 @@ module.exports = {
 
 
       // condition name that user submits
-      var conditionName = fields.condition_id;
+      var conditionName = fields.condition;
 
       // if the condition doesn't exist in tbl_conditions
       // adds a new records and return the id
