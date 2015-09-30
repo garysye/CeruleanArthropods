@@ -1,5 +1,6 @@
 var db = require('../db/index.js');
 var formidable = require('formidable');
+var conditions = require('../conditions/conditionsController.js');
 
 
 module.exports = {
@@ -39,29 +40,37 @@ module.exports = {
     form.keepExtensions = true;
 
     var insertNewPatient = function(vals) {
-      console.log('inserting new patient');
-      var sqlquery = "INSERT INTO tbl_patients (first_name, last_name, username, \
-        password, condition_id, photo_url, bio, progress, goal, funded) \
-        VALUES ( ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?)";
 
+      var sqlquery = "INSERT INTO tbl_patients (first_name, last_name, email, \
+        password, condition_id, photo_url, bio, goal) \
+        VALUES ( ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?)";
       db.query(sqlquery, vals, function(err, data){
         if(!err) {
           res.status(201).send(data);
         } else {
-          console.log('error adding patient', err);
           res.status(500).send('<h1>error adding patient</h1>' + err);
         }
       });
     };
 
     form.parse(req, function ( err, fields, files) {
-      var oldFilePath = files['photo_id'].path;
-      var newPatientFields = [fields.first_name, fields.last_name,fields.username,
-        fields.password, fields.condition_id, oldFilePath,
-        fields.bio, fields.progress,fields.goal, 
-        fields.funded
-      ];
-      insertNewPatient(newPatientFields);
+      // file path that that photo was saved
+      var oldFilePath = files['photo'].path;
+      // condition name that user submit
+      var conditionName = fields.condition_id;
+
+      // if the condition doesn't exist in tbl_conditions
+      // adds a new records and return the id
+      conditions.getOrAddNewCondition(conditionName, function(recordId){
+
+        // fields required for new patient record
+        var newPatientFields = [fields.first_name, fields.last_name,fields.email,
+          fields.password, recordId, oldFilePath,
+          fields.bio,fields.goal,
+        ];
+        // invoked after condition id is retrieved
+        insertNewPatient(newPatientFields);
+      });
     });
 
 
