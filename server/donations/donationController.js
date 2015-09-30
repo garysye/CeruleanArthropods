@@ -6,18 +6,18 @@ module.exports.createDonation = function (req, res) {
   var donorLast = req.body.donor_last_name;
   var email = req.body.donor_email;
   var amount = req.body.amount;
-  var patientUsername = req.body.patient_id;
+  var patientId = req.body.patient_id;
 
   // Creates strings for 2 SQL queries: one to create a new donation and update the patient's progress
-  var queryDonation = 'INSERT INTO tbl_donations (amount, donor_first_name, donor_last_name, donor_email, patient_username) \
+  var queryDonation = 'INSERT INTO tbl_donations (amount, donor_first_name, donor_last_name, donor_email, patient_id) \
                       VALUES (?, ?, ?, ?, ?)';
-  var queryPatient = 'UPDATE tbl_patients SET progress = progress + ? WHERE username = ?';
+  var queryPatient = 'UPDATE tbl_patients SET progress = progress + ? WHERE id = ?';
 
   // Updates the patient's progress and if successful, creates a new donation. If that is successful,
   // it sends back a 201. If errors at any point, it replies with a 404.
-  db.query(queryPatient, [amount, patientUsername], function (err, data) {
+  db.query(queryPatient, [amount, patientId], function (err, data) {
     if( !err ) {
-      db.query(queryDonation, [amount, donorFirst, donorLast, email, patientUsername], function (err, data) {
+      db.query(queryDonation, [amount, donorFirst, donorLast, email, patientId], function (err, data) {
         if( !err ) {
           res.status(201).send(data);
         } else {
