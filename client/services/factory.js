@@ -52,12 +52,14 @@ app.factory('donorsFactory', function ($http) {
 
   // POST req; this will allow donors to make their donation
   var submitDonationForm = function (newDonation) {
-    return $http.post('/classes/donation', newDonation)
+    return $http.post('/classes/donations', newDonation)
       .then(function(res) {
+        console.log(newDonation)
+        console.log(res)
         return res.data;
       })
       .catch(function(err) {
-        console.log('ERROR submitDonationForm: ' + err);
+        console.log('ERROR donorsFactory.submitDonationForm: ' + err);
       });
   };
 

@@ -2,6 +2,7 @@
 <br>
 <div>
   <form action="/classes/patients" method="post" ng-submit="handleSubmit()" enctype="multipart/form-data" class="css-form" novalidate>
+
     <input type="text" ng-model="patient.first_name" name="first_name" placeholder="First Name" required>
     <br>
     <input type="text" ng-model="patient.last_name" name="last_name" placeholder="Last Name" required>
@@ -12,17 +13,18 @@
     <br>
     <input type="text" ng-model="patient.condition" name="condition" placeholder="Condition" required>
     <br>
-    <input type="text" ng-model="patient.photo" name="photo" placeholder="Photo Upload" required>
+    <input type="file" ng-model="patient.photo" name="photo" placeholder="Photo Upload" required>
     <br>
     <input type="text" ng-model="patient.bio" name="bio" placeholder="Bio" required>
     <br>
-    <input type="text" ng-model="patient.progress" name="progress" placeholder="Progress" required>
+    <!-- <input type="text" ng-model="patient.progress" name="progress" placeholder="Progress" required> -->
     <br>
     <input type="text" ng-model="patient.goal" name="goal" placeholder="Goal" required>
     <br>
-    <input type="text" ng-model="patient.funded" name="funded" placeholder="Funded" required>
+    <!-- <input type="text" ng-model="patient.funded" name="funded" placeholder="Funded" required> -->
     <br>
     <input type="submit" value="submit">
+
   </form>
 
 

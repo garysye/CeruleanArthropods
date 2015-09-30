@@ -21,10 +21,12 @@ module.exports.createDonation = function (req, res) {
         if( !err ) {
           res.status(201).send(data);
         } else {
+          console.log('test1')
           res.status(404).send(err);
         }
       });
     } else {
+      console.log('test2')
       res.status(404).send(err);
     }
   });
