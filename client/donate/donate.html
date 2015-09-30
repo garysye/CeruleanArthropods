@@ -18,7 +18,7 @@
 <br>
 <br>
 
-<form action="/classes/donations" method="post" ng-submit="handleSubmit()" enctype="multi/form-data" class="css-form" novalidate>
+<form action="/classes/donations" method="post" ng-submit="handleSubmit()" enctype="multi/form-data" class="css-form" class="css-form" novalidate>
 
     <input type="text" ng-model="donor.first_name" name="first_name" placeholder="First Name" value="asdf">
     <br>
@@ -40,4 +40,14 @@
     <br>
     <input type="submit" value="submit">
     
-  </form>
+</form>
+
+<style type="text/css">
+  .css-form input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+  }
+
+  .css-form input.ng-valid.ng-touched {
+    background-color: #78FA89;
+  }
+</style>

@@ -2,16 +2,15 @@ angular.module('eir.getFunded', [])
 
 .controller('getFundedCtrl', function ($scope, patientsFactory) {
 
-  $scope.patient = {};
+  // $scope.patient = {};
 
-  $scope.handleSubmit = function(newPatient) {
-    // on form submit you need to send the new patient's info to the server
-    // 
-  };
+  // $scope.handleSubmit = function(newPatient) {
 
-  patientsFactory.submitPatientForm()
-
-  $scope.addNewPatient = function(patient) {
-
-  };
+  //   patientsFactory.submitPatientForm(newPatient)
+  //     .then (function(res) {
+  //     })
+  //     .catch(function(err) {
+  //       console.log('ERROR patientsFactory.submitPatientForm: ' + err);
+  //     });
+  // }
 });
