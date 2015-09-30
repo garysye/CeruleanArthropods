@@ -7,20 +7,20 @@ angular.module('eir.patients', [])
 
   patientsFactory.getPatients()
   .then(function(res){
-    console.log(res);
     $scope.patients = res;
   })
+  .then(function(res){
+    $scope.leftToFund();
+  })
 
-  // $scope.leftToFund = function() {
+  $scope.leftToFund = function() {
+    for(var i = 0; i < $scope.patients.length; i++) {
+      leftToFund = $scope.patients[i].goal - $scope.patients[i].progress
+      $scope.patients[i].leftToFund = leftToFund;
+    }
+  }
 
-  //   for(var i = 0; i < $scope.patients.length; i++) {
-  //     leftToFund = $scope.patients[i].goal - $scope.patients[i].progress
-  //     $scope.patients[i].leftToFund = leftToFund;
-  //   }
-
-  // }
-
-  // $scope.leftToFund();
+  
 
   
 

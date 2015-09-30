@@ -1,21 +1,23 @@
-<div class="container-fluid">
+<div class="container-fluid patients-background">
+
+  <h1>Support a patient</h1>
+
   <div class="row">
 
+
+
     <div class="col-xs-6 col-md-4 patient" ng-repeat="patient in patients">
-      <a ng-href="#/patients/{{patient.id}}">
+      <a ng-href="#/donate/{{patient.id}}">
         <div ng-style="{'background-image': 'url(' + patient.photo_url + ')'}">
         </div>
+        <p>
+          {{patient.bio}}
+        </p>
+        <h5>${{patient.leftToFund}} left to fund</h5>
       </a>
-      <p>
-        {{patient.bio}}
-      </p>
-      <h5>${{patient.leftToFund}} left to fund</h5>
     </div>
 
 
-    <!-- <div class="col-xs-6 col-md-4 patient">.col-xs-6 .col-md-4</div>
-    <div class="col-xs-6 col-md-4 patient">.col-xs-6 .col-md-4</div>
-    <div class="col-xs-6 col-md-4 patient">.col-xs-6 .col-md-4</div>
-    <div class="col-xs-6 col-md-4 patient">.col-xs-6 .col-md-4</div> -->
+
   </div>
 </div>

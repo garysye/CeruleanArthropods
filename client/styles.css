@@ -1,5 +1,40 @@
+.home-image {
+  background-image: url("eir.JPG");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 1200px;
+  height: 800px;
+}
+
+.home-title {
+  margin-top: 60px;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+}
+
+.home-button {
+ 
+   position: absolute; 
+   left: 50%;
+   bottom: 100px;
+   height: 60px;
+   width: 300px;
+   border-radius: 5px;
+   font-size: 20px;
+   display: inline-block;
+}
+
+.patients-background {
+
+  background-color: white;
+
+}
+
 .patient {
+  border: solid;
+}
 
-
-
+footer {
+  background-color: gray;
 }
