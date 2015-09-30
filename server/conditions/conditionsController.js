@@ -16,7 +16,6 @@ module.exports = {
 
   getOrAddNewCondition:function(name, cb) {
     this.checkIfConditionExists(name, function (data) {
-      console.log('after checking condition: ', data);
       if(data.length === 0) {
         this.addNewPatient(name, cb);
       } else {

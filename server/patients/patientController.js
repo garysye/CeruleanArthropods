@@ -34,45 +34,64 @@ module.exports = {
   },
 
   addNewPatient:function(req, res) {
-    console.log('new form post');
+    // instantiate new multi-part form parser
     var form = new formidable.IncomingForm();
-    form.uploadDir = __dirname + "/../uploads/";
+    // set directory for files to be uploaded
+    form.uploadDir = __dirname + "/../../client/uploads/";
     form.keepExtensions = true;
 
-    var insertNewPatient = function(vals) {
-
-      var sqlquery = "INSERT INTO tbl_patients (first_name, last_name, email, \
-        password, condition_id, photo_url, bio, goal) \
-        VALUES ( ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?)";
-      db.query(sqlquery, vals, function(err, data){
-        if(!err) {
-          res.status(201).send(data);
-        } else {
-          res.status(500).send('<h1>error adding patient</h1>' + err);
-        }
-      });
-    };
+    // reference to private insert method
+    var _insert = module.exports._insertNewPatient;
 
     form.parse(req, function ( err, fields, files) {
-      // file path that that photo was saved
-      var oldFilePath = files['photo'].path;
-      // condition name that user submit
+
+      // absolute file path that that photo was saved
+      var absolutePath = files['photo'].path;
+      // construct relative file path to save to db
+      var relPath = 'uploads/' + absolutePath.slice(absolutePath.lastIndexOf('/') + 1);
+
+      // condition name that user submits
       var conditionName = fields.condition_id;
 
       // if the condition doesn't exist in tbl_conditions
       // adds a new records and return the id
-      conditions.getOrAddNewCondition(conditionName, function(recordId){
-
+      
+      conditions.getOrAddNewCondition(conditionName, function (recordId){
         // fields required for new patient record
         var newPatientFields = [fields.first_name, fields.last_name,fields.email,
-          fields.password, recordId, oldFilePath,
-          fields.bio,fields.goal,
+          fields.password, recordId, relPath,
+          fields.bio,fields.goal
         ];
+
+        // private method to insert new patient
         // invoked after condition id is retrieved
-        insertNewPatient(newPatientFields);
+        _insert(res, newPatientFields);
       });
     });
 
+
+  },
+
+  _insertNewPatient:function(res, vals) {
+    // insert statment for tbl_patients
+    var sqlquery = "INSERT INTO tbl_patients (first_name, last_name, email, \
+      password, condition_id, photo_url, bio, goal) \
+      VALUES ( ?,  ?,  ?,  ?,  ?,  ?,  ?,  ?)";
+
+    db.query(sqlquery, vals, function(err, data){
+      if(!err) {
+        res.status(201).send(data);
+      } else {
+        if(err.code === 'ER_DUP_ENTRY') {
+          // username needs to be unique
+          res.status(301).send('<h1>Name Already Exists</h1>');
+        } else {
+          // mysql error
+          res.status(500).send('<h1>error adding patient</h1>' + err);
+        }
+      }
+    });
+    
 
   },
 
