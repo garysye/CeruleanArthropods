@@ -4,14 +4,19 @@ angular.module('eir.getFunded', [])
 
   $scope.patient = {};
 
+  // when patient clicks submit button when they sign up
   $scope.handleSubmit = function(newPatient) {
-    // on form submit you need to send the new patient's info to the server
-    // 
-  };
 
-  patientsFactory.submitPatientForm()
+    // invoke the this method and pass in the form submission data
+    patientsFactory.submitPatientForm(newPatient)
+      .then(function(res) {
 
-  $scope.addNewPatient = function(patient) {
-
-  };
+        // reset the patient form upon submission
+        $scope.patient = {};
+        
+      })
+      .catch(function(err) {
+        console.log('ERROR patientsFactory.submitPatientForm: ' + err);
+      });
+  }
 });

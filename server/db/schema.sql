@@ -42,6 +42,6 @@ CREATE TABLE IF NOT EXISTS tbl_donations (
   donor_first_name VARCHAR(70) NOT NULL,
   donor_last_name VARCHAR(70) NOT NULL,
   donor_email VARCHAR(70) NOT NULL,
-  patient_username VARCHAR(70) NOT NULL
+  patient_id VARCHAR(70) NOT NULL
 );
 

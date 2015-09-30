@@ -1,37 +1,28 @@
 <br>
 <br>
 <div>
-  <form action="/classes/patients" method="post" ng-submit="handleSubmit()" enctype="multipart/form-data" class="css-form" novalidate>
+  <form ng-submit="handleSubmit(patient)" enctype="multipart/form-data" class="css-form" novalidate>
+
     <input type="text" ng-model="patient.first_name" name="first_name" placeholder="First Name" required>
     <br>
     <input type="text" ng-model="patient.last_name" name="last_name" placeholder="Last Name" required>
     <br>
-    <input type="email" ng-model="patient.username" name="email" placeholder="Email" required>
+    <input type="email" ng-model="patient.email" name="email" placeholder="Email" required>
     <br>
     <input type="text" ng-model="patient.password" name="password" placeholder="Password" required>
     <br>
     <input type="text" ng-model="patient.condition" name="condition" placeholder="Condition" required>
     <br>
-    <input type="text" ng-model="patient.photo" name="photo" placeholder="Photo Upload" required>
+    <input type="file" ng-model="patient.photo" name="photo" placeholder="Photo Upload" required>
     <br>
     <input type="text" ng-model="patient.bio" name="bio" placeholder="Bio" required>
-    <br>
-    <input type="text" ng-model="patient.progress" name="progress" placeholder="Progress" required>
+    <!-- <br> -->
+    <!-- <input type="text" ng-model="patient.progress" name="progress" placeholder="Progress" required> -->
     <br>
     <input type="text" ng-model="patient.goal" name="goal" placeholder="Goal" required>
-    <br>
-    <input type="text" ng-model="patient.funded" name="funded" placeholder="Funded" required>
+    <!-- <br> -->
+    <!-- <input type="text" ng-model="patient.funded" name="funded" placeholder="Funded" required> -->
     <br>
     <input type="submit" value="submit">
+
   </form>
-
-
-<style type="text/css">
-  .css-form input.ng-invalid.ng-touched {
-    background-color: #FA787E;
-  }
-
-  .css-form input.ng-valid.ng-touched {
-    background-color: #78FA89;
-  }
-</style>

@@ -17,21 +17,27 @@
 <br>
 <br>
 <br>
-<form action="/classes/donation" method="post" ng-submit="handleSubmit()" enctype="multi/form-data" class="css-form" novalidate>
-    <input type="text" ng-model="donor.first_name" name="first_name" placeholder="First Name">
+
+<form action="/classes/donations" method="post" ng-submit="handleSubmit()" enctype="multi/form-data" class="css-form" class="css-form" novalidate>
+
+    <input type="text" ng-model="donor.first_name" name="first_name" placeholder="First Name" value="asdf">
     <br>
     <input type="text" ng-model="donor.last_name" name="last_name" placeholder="Last Name">
     <br>
-    <input type="email" ng-model="donor.first_name" name="email" placeholder="Email Address">
+    <input type="email" ng-model="donor.email" name="email" placeholder="Email Address">
+    <!-- <br> -->
+    <!-- <input type="text" ng-model="donor.cc" name="cc" placeholder="Credit Card Number"> -->
+    <!-- <br> -->
+    <!-- <input type="text" ng-model="donor.exp" name="expiration" placeholder="Expiration (mm/yyyy)"> -->
+    <!-- <br> -->
+    <!-- <input type="text" ng-model="donor.cvv" name="cvv" placeholder="CVV"> -->
     <br>
-    <input type="text" ng-model="donor.first_name" name="cc" placeholder="Credit Card Number">
+    <input type="text" ng-model="donor.amount" name="amount" placeholder="Donation Amount">
     <br>
-    <input type="text" ng-model="donor.first_name" name="expiration" placeholder="Expiration (mm/yyyy)">
-    <br>
-    <input type="text" ng-model="donor.first_name" name="cvv" placeholder="CVV">
-    <br>
-    <input type="text" ng-model="donor.first_name" name="amount" placeholder="Donation Amount">
+    <input type="text" ng-model="donor.patient_id" name="patient_id" placeholder="patient id" value="{{ patient.id }}">
+    <!-- <br> -->
+    <!-- <input type="text" ng-model="donor.message" name="amount" placeholder="Send a Message to Your Patient"> -->
     <br>
     <input type="submit" value="submit">
     
-  </form>
+</form>
