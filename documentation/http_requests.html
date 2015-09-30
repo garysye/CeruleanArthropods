@@ -1,9 +1,9 @@
 |      URL                 |  Verb  | Body  |   Angular Factory & Method          |           Result                         |
 |:------------------------:|:------:|:-----:|:-----------------------------------:|:------------------------------------------------------|
-| /classes/patients/       | POST   | form-data | patientsFactory.submitPatientForm   |                              the ID of the row |
+| /classes/patients       | POST   | form-data | patientsFactory.submitPatientForm   |                              the ID of the row |
 | /classes/patients        | GET    | ????? | patientsFactory.getPatients         |           An array of objects; an array of patients |
 | /classes/patients/:id    | GET    | ????? | patientsFactory.getPatient          |         Return JSON of single user with matching `id` |
-| /classes/donation/???    | POST   | ????? | donorsFactory.submitDonationForm    | Update user with matching `id` and return JSON of user|
+| /classes/donation    | POST   | form-data | donorsFactory.submitDonationForm    | Update user with matching `id` and return JSON of user|
 | /classes/patients/:id    | PUT    | ????? | donorsFactory.updatePatientProgress | Delete user with matching `id` and return JSON of user|
 | /classes/donors/         | GET    | ????? | donorsFactory.getDonors             | Delete user with matching `id` and return JSON of user|
 | /classes/donors/:id      | GET    | ????? | donorsFactory.getDonor              | Delete user with matching `id` and return JSON of user|

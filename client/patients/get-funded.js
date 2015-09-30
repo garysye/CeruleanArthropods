@@ -4,9 +4,14 @@ angular.module('eir.getFunded', [])
 
   $scope.patient = {};
 
+  $scope.handleSubmit = function(newPatient) {
+    // on form submit you need to send the new patient's info to the server
+    // 
+  };
+
   patientsFactory.submitPatientForm()
 
-  $scope.update = function(patient) {
+  $scope.addNewPatient = function(patient) {
 
   };
 });
