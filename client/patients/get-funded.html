@@ -1,7 +1,7 @@
 <br>
 <br>
 <div>
-  <form ng-submit="handleSubmit()" enctype="multipart/form-data" class="css-form" novalidate>
+  <form ng-submit="handleSubmit(patient)" enctype="multipart/form-data" class="css-form" novalidate>
 
     <input type="text" ng-model="patient.first_name" name="first_name" placeholder="First Name" required>
     <br>
@@ -26,14 +26,3 @@
     <input type="submit" value="submit">
 
   </form>
-
-
-<style type="text/css">
-  .css-form input.ng-invalid.ng-touched {
-    background-color: #FA787E;
-  }
-
-  .css-form input.ng-valid.ng-touched {
-    background-color: #78FA89;
-  }
-</style>

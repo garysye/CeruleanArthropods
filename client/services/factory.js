@@ -11,7 +11,7 @@ app.factory('patientsFactory', function ($http) {
         return res.data;
       })
       .catch(function(err) {
-        console.log('ERROR submitPatientForm: ' + err);
+        console.log(err);
       });
   };
 
