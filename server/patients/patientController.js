@@ -45,10 +45,16 @@ module.exports = {
 
     form.parse(req, function ( err, fields, files) {
 
-      // absolute file path that that photo was saved
-      var absolutePath = files['photo'].path;
-      // construct relative file path to save to db
-      var relPath = 'uploads/' + absolutePath.slice(absolutePath.lastIndexOf('/') + 1);
+      try {
+        // absolute file path that that photo was saved
+        var absolutePath = files['photo'].path;
+        // construct relative file path to save to db
+        var relPath = 'uploads/' + absolutePath.slice(absolutePath.lastIndexOf('/') + 1);
+        
+      } catch(e) {
+        var relPath = 'photos/no-photo.png';
+      }
+
 
       // condition name that user submits
       var conditionName = fields.condition_id;
