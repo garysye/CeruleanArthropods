@@ -17,21 +17,21 @@
 <br>
 <br>
 <br>
-<form>
-    <input type="text" name="fname" placeholder="First Name">
+<form action="/classes/donation" method="post" ng-submit="handleSubmit()" enctype="multi/form-data" class="css-form" novalidate>
+    <input type="text" ng-model="donor.first_name" name="first_name" placeholder="First Name">
     <br>
-    <input type="text" name="lname" placeholder="Last Name">
+    <input type="text" ng-model="donor.last_name" name="last_name" placeholder="Last Name">
     <br>
-    <input type="email" name="email" placeholder="Email Address">
+    <input type="email" ng-model="donor.first_name" name="email" placeholder="Email Address">
     <br>
-    <input type="text" name="cc" placeholder="Credit Card Number">
+    <input type="text" ng-model="donor.first_name" name="cc" placeholder="Credit Card Number">
     <br>
-    <input type="text" name="expiration" placeholder="Expiration (mm/yyyy)">
+    <input type="text" ng-model="donor.first_name" name="expiration" placeholder="Expiration (mm/yyyy)">
     <br>
-    <input type="text" name="cvv" placeholder="CVV">
+    <input type="text" ng-model="donor.first_name" name="cvv" placeholder="CVV">
     <br>
-    <input type="text" name="amount" placeholder="Donation Amount">
+    <input type="text" ng-model="donor.first_name" name="amount" placeholder="Donation Amount">
     <br>
-    <input type="submit" value="Submit">
+    <input type="submit" value="submit">
     
   </form>
