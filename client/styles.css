@@ -1,7 +1,9 @@
-body {
+.home-image {
   background-image: url("eir.JPG");
   background-size: cover;
   background-repeat: no-repeat;
+  width: 1200px;
+  height: 800px;
 }
 
 .home-title {
