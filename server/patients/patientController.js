@@ -64,7 +64,7 @@ module.exports = {
       
       conditions.getOrAddNewCondition(conditionName, function (recordId){
         // fields required for new patient record
-        var newPatientFields = [fields.first_name, fields.last_name,fields.email,
+        var newPatientFields = [fields.first_name, fields.last_name, fields.email,
           fields.password, recordId, relPath,
           fields.bio,fields.goal
         ];
@@ -74,7 +74,7 @@ module.exports = {
         _insert(res, newPatientFields);
       });
     });
-
+  
 
   },
 
