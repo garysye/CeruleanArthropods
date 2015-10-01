@@ -8,6 +8,7 @@ angular.module('eir.patients', [])
   patientsFactory.getPatients()
   .then(function(res){
     $scope.patients = res;
+    console.log($scope.patients);
   })
   .then(function(res){
     $scope.leftToFund();
@@ -19,11 +20,5 @@ angular.module('eir.patients', [])
       $scope.patients[i].leftToFund = leftToFund;
     }
   }
-
-  
-
-  
-
-
 
 });

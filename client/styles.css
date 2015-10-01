@@ -32,7 +32,26 @@
 }
 
 .patient {
-  border: solid;
+  border: 2px solid black;
+  text-align: center;
+  box-shadow: 2px 4px 11px 1px black;
+  margin-bottom: 1em;
+  padding: 0 !important;
+  background-color:rgba(148, 143, 188, 0.34);
+}
+
+.patient .bio {
+  
+  text-align: left;
+  padding: 8px;
+}
+
+.patient img {
+  max-width: 250px;
+  height: 200px;
+  margin-bottom: 3px;
+  border: 3px solid black;
+
 }
 
 footer {
@@ -46,3 +65,15 @@ footer {
 .css-form input.ng-valid.ng-touched {
   background-color: #78FA89;
 }
+
+
+
+.patient-header {
+  background-image: url('eir.jpg');
+  background-position: center center;
+  background-size: cover;
+  height: 200px;
+  margin-bottom: 2em;
+  color: white;
+}
+
