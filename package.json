@@ -4,7 +4,7 @@
   "description": "Allows donors to crowdfund medical treatments for patients who lack monetary access to such resources.",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/**/*.js"
   },
   "repository": {
     "type": "git",
