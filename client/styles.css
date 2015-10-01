@@ -2,7 +2,7 @@
   background-image: url("eir.JPG");
   background-size: cover;
   background-repeat: no-repeat;
-  width: 1200px;
+  /*width: 1200px;*/
   height: 800px;
 }
 
@@ -15,14 +15,15 @@
 
 .home-button {
  
-   position: absolute; 
+   /*position: absolute; 
    left: 50%;
    bottom: 100px;
    height: 60px;
    width: 300px;
    border-radius: 5px;
    font-size: 20px;
-   display: inline-block;
+   display: inline-block;*/
+   margin-top: 2em;
 }
 
 .patients-background {
