@@ -1,6 +1,6 @@
 <header class="patient-header">
   <div class="container">
-    <h1>{{ patient.first_name }} has a condition called {{ patient.condition_id }} and appreciates your donation ${{ donor.amount === 1 ? 'YES' : 'NO' }}</h1>
+    <h1>{{ patient.first_name }} has a condition called {{ patient.condition_id }} and appreciates your donation {{ donor.amount > 0 ? 'of $' + donor.amount : '' }}</h1>
   </div>
 </header>
 
@@ -27,18 +27,17 @@
       <div class="checkout-header">
         <h1 class="checkout-title">
           Complete Your Donation
-          <!-- <span class="checkout-price">$10</span> -->
         </h1>
       </div>
       <p>
         <input type="text" ng-model="donor.donor_first_name" name="first_name" class="checkout-input checkout-name" placeholder="First Name" autofocus>
         <input type="text" ng-model="donor.donor_last_name" name="last_name" class="checkout-input checkout-name" placeholder="Last Name" autofocus>
         <input type="text" ng-model="donor.donor_email" name="email" class="checkout-input checkout-email" placeholder="Email Address" autofocus>
-        <input type="text" ng-model="donor.amount" name="amount" class="checkout-input checkout-amount" placeholder="Donation Amount" autofocus>
+        <input type="number" ng-model="donor.amount" name="amount" class="checkout-input checkout-amount" placeholder="Donation Amount" autofocus>
         <input type="text" ng-model="cc" name="" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111">
-        <input type="text" ng-model="donor.donor_last_name" name="last_name" class="checkout-input checkout-exp" placeholder="MM">
-        <input type="text" ng-model="yy" name="donor.donor_" class="checkout-input checkout-exp" placeholder="YY">
-        <input type="text" ng-model="cvc" name="" class="checkout-input checkout-cvc" placeholder="CVC">
+        <input type="text" ng-model="donor.donor_last_name" name="mm" class="checkout-input checkout-exp" placeholder="MM">
+        <input type="text" ng-model="yy" name="yy" class="checkout-input checkout-exp" placeholder="YY">
+        <input type="text" ng-model="cvc" name="cvc" class="checkout-input checkout-cvc" placeholder="CVC">
       </p>
       <p>
         <input type="submit" value="Donate" class="checkout-btn">
@@ -46,33 +45,3 @@
     </form>
   </section>
 </div>
-
-
-
-
-
-
-
-  <!-- <section class="donate-box form-group"
-    <form ng-submit="handleSubmit(donor)" class="form-group" novalidate>
-      <input type="text" class="form-control" ng-model="donor.donor_first_name" name="first_name" placeholder="First Name" value="asdf">
-      <br>
-      <input type="text" class="form-control" ng-model="donor.donor_last_name" name="last_name" placeholder="Last Name">
-      <br>
-      <input type="email" class="form-control" ng-model="donor.donor_email" name="email" placeholder="Email Address">
-      <br>
-      <input type="number" class="form-control" name="cc" placeholder="Credit Card Number">
-      <br>
-      <input type="number" class="form-control" ng-model="donor.exp" name="expiration" placeholder="Expiration (mm/yyyy)">
-      <br>
-      <input type="number" class="form-control" ng-model="donor.cvv" name="cvv" placeholder="CVV">
-      <br>
-      <input type="number" class="form-control" ng-model="donor.amount" name="amount" placeholder="Donation Amount">
-      <br>
-      <input type="text" class="form-control" ng-model="donor.message" name="amount" placeholder="Send a Message to Your Patient">
-      <br>
-      <input class="donate-btn" type="submit" value="Donate ${{donor.amount}}">
-    </form>
-  </section>
-</div>
- -->
