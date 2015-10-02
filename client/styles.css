@@ -59,6 +59,11 @@ footer {
   background-color: gray;
 }
 
+
+.css-form {
+  margin-bottom: 5em;
+}
+
 .css-form input.ng-invalid.ng-touched {
   background-color: #FA787E;
 }
@@ -66,6 +71,7 @@ footer {
 .css-form input.ng-valid.ng-touched {
   background-color: #78FA89;
 }
+
 
 
 
