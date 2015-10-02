@@ -94,38 +94,10 @@ footer {
   width: 200px;
 }
 
-.donate-btn {
-  -webkit-border-radius: 37;
-  -moz-border-radius: 37;
-  border-radius: 37px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  background: #5fbcfa;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
-
-.donate-btn:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
-}
-
-
-
-
-
-
-
 
 
 .checkout {
-  width: 270px;
+  width: 400px;
   margin: 50px auto;
   padding: 15px;
   background: #f3f6fa;
@@ -182,7 +154,7 @@ footer {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
-.checkout-price {
+/*.checkout-price {
   position: absolute;
   top: -14px;
   right: -14px;
@@ -219,7 +191,7 @@ footer {
   border-radius: 18px;
   -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 -1px 1px rgba(0, 0, 0, 0.25), 0 -1px 1px rgba(0, 0, 0, 0.25);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 -1px 1px rgba(0, 0, 0, 0.25), 0 -1px 1px rgba(0, 0, 0, 0.25);
-}
+}*/
 
 input {
   margin: 0;
@@ -258,16 +230,28 @@ input {
 }
 
 .checkout-name {
-  width: 150px;
+  width: 160px;
+  margin-left: 15px;
+}
+
+.checkout-email {
+  width: 185px;
+  margin: 15px 0px 15px 15px;
+}
+
+.checkout-amount {
+  width: 135px;
+  margin: 15px 5px 15px 15px;
 }
 
 .checkout-card {
-  width: 210px;
+  width: 160px;
+  margin-left: 15px;
 }
 
 .checkout-exp,
 .checkout-cvc {
-  margin-left: 15px;
+  margin-left: 13.5px;
   width: 45px;
 }
 
@@ -275,6 +259,7 @@ input {
   width: 100%;
   height: 34px;
   padding: 0;
+  margin: 0px 15px;
   font-weight: bold;
   color: white;
   text-align: center;

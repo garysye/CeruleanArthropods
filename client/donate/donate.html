@@ -4,8 +4,10 @@
   </div>
 </header>
 
-<!-- <div class="donate-wrapper"> -->
+<div class="donate-wrapper">
   <section class="donate-box">
+
+    <img src="http://i.imgur.com/5h4m3fH.jpg" width="350px" height="350px"> 
     <ul>
       <li><b>Patient id:</b> {{ patient.id }}</li>
       <li><b>Patient username:</b> {{ patient.username }}</li>
@@ -19,6 +21,37 @@
       <li><b>Patient photo_id:</b> {{ patient.photo_id }}</li>
     </ul>
   </section>
+
+  <section class="donate-box form-group">
+    <form ng-submit=handleSubmit(donor) class="form-group checkout" novalidate>
+      <div class="checkout-header">
+        <h1 class="checkout-title">
+          Checkout
+          <!-- <span class="checkout-price">$10</span> -->
+        </h1>
+      </div>
+      <p>
+        <input type="text" ng-model="donor.donor_first_name" name="first_name" class="checkout-input checkout-name" placeholder="First Name" autofocus>
+        <input type="text" ng-model="donor.donor_last_name" name="last_name" class="checkout-input checkout-name" placeholder="Last Name" autofocus>
+        <input type="text" ng-model="donor.donor_email" name="email" class="checkout-input checkout-email" placeholder="Email Address" autofocus>
+        <input type="text" ng-model="donor_amount" name="amount" class="checkout-input checkout-amount" placeholder="Donation Amount" autofocus>
+        <input type="text" ng-model="" name="" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111">
+        <input type="text" ng-model="donor.donor_last_name" name="last_name" class="checkout-input checkout-exp" placeholder="MM">
+        <input type="text" ng-model="" name="donor.donor_" class="checkout-input checkout-exp" placeholder="YY">
+        <input type="text" ng-model="" name="" class="checkout-input checkout-cvc" placeholder="CVC">
+      </p>
+      <p>
+        <input type="submit" value="Donate" class="checkout-btn">
+      </p>
+    </form>
+  </section>
+</div>
+
+
+
+
+
+
 <!-- 
   <section class="donate-box form-group"
     <form ng-submit="handleSubmit(donor)" class="form-group" novalidate>
@@ -43,7 +76,7 @@
   </section>
 </div>
  -->
-
+<!-- 
 
   <form class="checkout">
     <div class="checkout-header">
@@ -66,7 +99,7 @@
     </p>
   </form>
 
-
+ -->
 
 
 
