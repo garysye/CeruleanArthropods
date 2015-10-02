@@ -1,41 +1,73 @@
-<br>
-<br>
-<div>
-  <ul>
-    <li><b>Patient id:</b> {{ patient.id }}</li>
-    <li><b>Patient username:</b> {{ patient.username }}</li>
-    <li><b>Patient first_name:</b> {{ patient.first_name }}</li>
-    <li><b>Patient last_name:</b> {{ patient.last_name }}</li>
-    <li><b>Patient bio:</b> {{ patient.bio }}</li>
-    <li><b>Patient goal:</b> {{ patient.goal }}</li>
-    <li><b>Patient progress:</b> {{ patient.progress }}</li>
-    <li><b>Patient funded:</b> {{ patient.funded }}</li>
-    <li><b>Patient condition_id:</b> {{ patient.condition_id }}</li>
-    <li><b>Patient photo_id:</b> {{ patient.photo_id }}</li>
-  </ul>
+<header class="patient-header">
+  <div class="container">
+    <h1>{{ patient.first_name }} appreciates your donation of ${{ donor.amount }} to put towards her {{ patient.condition_id }} surgery</h1>
+  </div>
+</header>
+
+<div class="donate-wrapper">
+  <section class="donate-box">
+    <ul>
+      <li><b>Patient id:</b> {{ patient.id }}</li>
+      <li><b>Patient username:</b> {{ patient.username }}</li>
+      <li><b>Patient first_name:</b> {{ patient.first_name }}</li>
+      <li><b>Patient last_name:</b> {{ patient.last_name }}</li>
+      <li><b>Patient bio:</b> {{ patient.bio }}</li>
+      <li><b>Patient goal:</b> {{ patient.goal }}</li>
+      <li><b>Patient progress:</b> {{ patient.progress }}</li>
+      <li><b>Patient funded:</b> {{ patient.funded }}</li>
+      <li><b>Patient condition_id:</b> {{ patient.condition_id }}</li>
+      <li><b>Patient photo_id:</b> {{ patient.photo_id }}</li>
+    </ul>
+  </section>
+
+  <section class="donate-box form-group"
+    <form ng-submit="handleSubmit(donor)" class="form-group" novalidate>
+      <input type="text" class="form-control" ng-model="donor.donor_first_name" name="first_name" placeholder="First Name" value="asdf">
+      <br>
+      <input type="text" class="form-control" ng-model="donor.donor_last_name" name="last_name" placeholder="Last Name">
+      <br>
+      <input type="email" class="form-control" ng-model="donor.donor_email" name="email" placeholder="Email Address">
+      <br>
+      <input type="number" class="form-control" name="cc" placeholder="Credit Card Number">
+      <br>
+      <input type="number" class="form-control" ng-model="donor.exp" name="expiration" placeholder="Expiration (mm/yyyy)">
+      <br>
+      <input type="number" class="form-control" ng-model="donor.cvv" name="cvv" placeholder="CVV">
+      <br>
+      <input type="number" class="form-control" ng-model="donor.amount" name="amount" placeholder="Donation Amount">
+      <br>
+      <input type="text" class="form-control" ng-model="donor.message" name="amount" placeholder="Send a Message to Your Patient">
+      <br>
+      <input class="donate-btn" type="submit" value="Donate ${{donor.amount}}">
+    </form>
+  </section>
 </div>
-<br>
-<br>
-<br>
 
-<form ng-submit="handleSubmit(donor)" class="css-form" class="css-form" novalidate>
 
-    <input type="text" ng-model="donor.donor_first_name" name="first_name" placeholder="First Name" value="asdf">
-    <br>
-    <input type="text" ng-model="donor.donor_last_name" name="last_name" placeholder="Last Name">
-    <br>
-    <input type="email" ng-model="donor.donor_email" name="email" placeholder="Email Address">
-    <!-- <br> -->
-    <!-- <input type="text" ng-model="donor.cc" name="cc" placeholder="Credit Card Number"> -->
-    <!-- <br> -->
-    <!-- <input type="text" ng-model="donor.exp" name="expiration" placeholder="Expiration (mm/yyyy)"> -->
-    <!-- <br> -->
-    <!-- <input type="text" ng-model="donor.cvv" name="cvv" placeholder="CVV"> -->
-    <br>
-    <input type="text" ng-model="donor.amount" name="amount" placeholder="Donation Amount">
-    <!-- <br> -->
-    <!-- <input type="text" ng-model="donor.message" name="amount" placeholder="Send a Message to Your Patient"> -->
-    <br>
-    <input type="submit" value="submit">
-    
-</form>
+
+  <form class="checkout">
+    <div class="checkout-header">
+      <h1 class="checkout-title">
+        Checkout
+        <span class="checkout-price">$10</span>
+      </h1>
+    </div>
+    <p>
+      <input type="text" class="checkout-input checkout-name" placeholder="Your name" autofocus>
+      <input type="text" class="checkout-input checkout-exp" placeholder="MM">
+      <input type="text" class="checkout-input checkout-exp" placeholder="YY">
+    </p>
+    <p>
+      <input type="text" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111">
+      <input type="text" class="checkout-input checkout-cvc" placeholder="CVC">
+    </p>
+    <p>
+      <input type="submit" value="Purchase" class="checkout-btn">
+    </p>
+  </form>
+
+
+
+
+
+
