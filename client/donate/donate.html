@@ -1,6 +1,6 @@
 <header class="patient-header">
   <div class="container">
-    <h1>{{ patient.first_name }} appreciates your donation of ${{ donor.amount }} to put towards her {{ patient.condition_id }} surgery</h1>
+    <h1>{{ patient.first_name }} has a condition called {{ patient.condition_id }} and appreciates your donation ${{ donor.amount === 1 ? 'YES' : 'NO' }}</h1>
   </div>
 </header>
 
@@ -34,7 +34,7 @@
         <input type="text" ng-model="donor.donor_first_name" name="first_name" class="checkout-input checkout-name" placeholder="First Name" autofocus>
         <input type="text" ng-model="donor.donor_last_name" name="last_name" class="checkout-input checkout-name" placeholder="Last Name" autofocus>
         <input type="text" ng-model="donor.donor_email" name="email" class="checkout-input checkout-email" placeholder="Email Address" autofocus>
-        <input type="text" ng-model="donor_amount" name="amount" class="checkout-input checkout-amount" placeholder="Donation Amount" autofocus>
+        <input type="text" ng-model="donor.amount" name="amount" class="checkout-input checkout-amount" placeholder="Donation Amount" autofocus>
         <input type="text" ng-model="cc" name="" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111">
         <input type="text" ng-model="donor.donor_last_name" name="last_name" class="checkout-input checkout-exp" placeholder="MM">
         <input type="text" ng-model="yy" name="donor.donor_" class="checkout-input checkout-exp" placeholder="YY">
