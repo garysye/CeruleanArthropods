@@ -26,7 +26,7 @@
     <form ng-submit=handleSubmit(donor) class="form-group checkout" novalidate>
       <div class="checkout-header">
         <h1 class="checkout-title">
-          Checkout
+          Complete Your Donation
           <!-- <span class="checkout-price">$10</span> -->
         </h1>
       </div>
@@ -35,10 +35,10 @@
         <input type="text" ng-model="donor.donor_last_name" name="last_name" class="checkout-input checkout-name" placeholder="Last Name" autofocus>
         <input type="text" ng-model="donor.donor_email" name="email" class="checkout-input checkout-email" placeholder="Email Address" autofocus>
         <input type="text" ng-model="donor_amount" name="amount" class="checkout-input checkout-amount" placeholder="Donation Amount" autofocus>
-        <input type="text" ng-model="" name="" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111">
+        <input type="text" ng-model="cc" name="" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111">
         <input type="text" ng-model="donor.donor_last_name" name="last_name" class="checkout-input checkout-exp" placeholder="MM">
-        <input type="text" ng-model="" name="donor.donor_" class="checkout-input checkout-exp" placeholder="YY">
-        <input type="text" ng-model="" name="" class="checkout-input checkout-cvc" placeholder="CVC">
+        <input type="text" ng-model="yy" name="donor.donor_" class="checkout-input checkout-exp" placeholder="YY">
+        <input type="text" ng-model="cvc" name="" class="checkout-input checkout-cvc" placeholder="CVC">
       </p>
       <p>
         <input type="submit" value="Donate" class="checkout-btn">
@@ -52,8 +52,8 @@
 
 
 
-<!-- 
-  <section class="donate-box form-group"
+
+  <!-- <section class="donate-box form-group"
     <form ng-submit="handleSubmit(donor)" class="form-group" novalidate>
       <input type="text" class="form-control" ng-model="donor.donor_first_name" name="first_name" placeholder="First Name" value="asdf">
       <br>
@@ -76,31 +76,3 @@
   </section>
 </div>
  -->
-<!-- 
-
-  <form class="checkout">
-    <div class="checkout-header">
-      <h1 class="checkout-title">
-        Checkout
-        <span class="checkout-price">$10</span>
-      </h1>
-    </div>
-    <p>
-      <input type="text" class="checkout-input checkout-name" placeholder="Your name" autofocus>
-      <input type="text" class="checkout-input checkout-exp" placeholder="MM">
-      <input type="text" class="checkout-input checkout-exp" placeholder="YY">
-    </p>
-    <p>
-      <input type="text" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111">
-      <input type="text" class="checkout-input checkout-cvc" placeholder="CVC">
-    </p>
-    <p>
-      <input type="submit" value="Purchase" class="checkout-btn">
-    </p>
-  </form>
-
- -->
-
-
-
-
