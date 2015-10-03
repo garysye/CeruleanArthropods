@@ -1,6 +1,6 @@
 <header class="patient-header">
   <div class="container">
-    <h1>{{ patient.first_name }} has a condition called {{ patient.condition_id }} and appreciates your donation {{ donor.amount > 0 ? 'of $' + donor.amount : '' }}</h1>
+    <h1>{{ patient.first_name }} has a condition called {{ patient.condition_name }} and appreciates your donation {{ donor.amount > 0 ? 'of $' + donor.amount : '' }}</h1>
   </div>
 </header>
 
@@ -40,7 +40,7 @@
         <input type="text" ng-model="cvc" name="cvc" class="checkout-input checkout-cvc" placeholder="CVC">
       </p>
       <p>
-        <input type="submit" value="Donate" class="checkout-btn">
+        <input type="submit" value="Donate" class="btn btn-default btn-block btn-primary">
       </p>
     </form>
   </section>
