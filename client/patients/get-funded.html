@@ -34,7 +34,7 @@
     <div class="form-group">
     
       <label for="Photo">Photo</label>
-      <input class="form-control" id="Photo" type="file" ng-model="patient.photo" name="photo" placeholder="Photo Upload" required>
+      <input class="form-control" id="Photo" type="file" file-model="profilePic" ng-model="patient.photo" name="photo" placeholder="Photo Upload" required>
     </div>
 
     <div class="form-group">
@@ -44,12 +44,12 @@
 
     <div class="form-group">
       <label for="Goal">Goal</label>
-      <input class="form-control" id="Goal" type="text" ng-model="patient.goal" name="goal" placeholder="Goal" required>
+      <input class="form-control" id="Goal" type="number" ng-model="patient.goal" name="goal" placeholder="Goal" required>
     </div>
 
     
     
-    <input class="form-control" type="submit" value="submit">
+    <input class="form-control" type="submit" value="submit" ng-click="uploadFile()">
 
 
   </form>
