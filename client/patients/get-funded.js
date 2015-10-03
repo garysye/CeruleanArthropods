@@ -17,7 +17,7 @@ angular.module('eir.getFunded', [])
   };
 })
 
-.controller('getFundedCtrl', function ($scope, patientsFactory) {
+.controller('getFundedCtrl', function ($scope, patientsFactory, fileUpload) {
 
   $scope.patient = {};
 
@@ -30,12 +30,19 @@ angular.module('eir.getFunded', [])
 
         // reset the patient form upon submission
         $scope.patient = {};
-        var file = $scope.myFile;
-        var uploadUrl = 'http://www.example.com/images';
-        fileUpload.uploadFileToUrl(file, uploadUrl);
+
+        $scope.uploadFile = function() {
+          var file = $scope.profilePic;
+          console.log('file is ');
+          console.log(file);
+          var uploadUrl = '/classes/patients';
+          fileUpload.uploadFileToUrl(file, uploadUrl);
+        };
+          
       })
       .catch(function(err) {
         console.log(err);
       });
   }
-});
+})
+
