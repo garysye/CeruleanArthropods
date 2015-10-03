@@ -1,6 +1,6 @@
 angular.module('eir.donate', ['ngRoute'])
 
-.controller('donateCtrl', function ($scope, patientsFactory, donorsFactory, $routeParams) {
+.controller('donateCtrl', function ($scope, patientsFactory, donorsFactory, $routeParams, conditionFactory) {
 
   $scope.patient = {};
   $scope.donor = {};
@@ -9,10 +9,23 @@ angular.module('eir.donate', ['ngRoute'])
   patientsFactory.getPatient($routeParams.id)
     .then(function(res) {
       $scope.patient = res[0];
+      $scope.getConditionName();
     })
     .catch(function(err) {
       console.log('ERROR patientsFactory.getPatient: ' + err);
     });
+
+  // called after patient reocrd is returned. condtion is in a seperate table 
+  $scope.getConditionName = function() {
+    conditionFactory.getCondition($scope.patient.condition_id)
+      .then(function (res){
+        var conditionName = res[0].condition_name;
+        $scope.patient.condition_name = conditionName;
+      })
+      .catch(function (err){
+        console.warn('Err donateCtrl - could not find condition name: ', err);
+      });
+  };
 
 
   // on form submit, send the new donor info to the server; POST req

@@ -127,7 +127,7 @@ app.factory('conditionFactory', function ($http) {
 
   // GET req; this will retrieve one specific condition from our db
   var getCondition = function(id) {
-    return $http.get('classes/conditions' + id)
+    return $http.get('classes/conditions/' + id)
       .then(function(res) {
         return res.data;
       })
