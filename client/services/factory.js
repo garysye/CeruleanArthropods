@@ -1,6 +1,23 @@
 var app = angular.module('eir.factory', []);
 
 
+app.service('fileUpload', function($http) {
+  this.uploadFileToUrl = function(file, uploadUrl) {
+    var fd = new FormData();
+    fd.append('file', file);
+    $http.post(uploadUrl, fd, {
+      transformRequest: angular.identity,
+      headers: {'Content-Type': undefined}
+    })
+    .success(function() {
+    })
+    .error(function() {
+
+    });
+  };
+});
+
+
 // this factory will hold all VERB requests relating to patients
 app.factory('patientsFactory', function ($http) {
 
