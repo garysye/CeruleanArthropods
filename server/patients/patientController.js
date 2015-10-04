@@ -37,7 +37,6 @@ module.exports = {
     // instantiate new multi-part form parser
     var form = new formidable.IncomingForm();
     // set directory for files to be uploaded
-    console.log(form)
     form.uploadDir = __dirname + "/../../client/uploads/";
     form.keepExtensions = true;
 
@@ -45,12 +44,11 @@ module.exports = {
     var _insert = module.exports._insertNewPatient;
 
     form.parse(req, function ( err, fields, files) {
-      console.log(fields)
-      console.log()
 
       try {
         // absolute file path that that photo was saved
         var absolutePath = files['photo'].path;
+        
         // construct relative file path to save to db
         var relPath = 'uploads/' + absolutePath.slice(absolutePath.lastIndexOf('/') + 1);
         

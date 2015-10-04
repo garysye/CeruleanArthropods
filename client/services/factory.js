@@ -2,9 +2,15 @@ var app = angular.module('eir.factory', []);
 
 
 app.service('fileUpload', function($http) {
-  this.uploadFileToUrl = function(file, uploadUrl) {
+  this.uploadFileToUrl = function(fields, uploadUrl) {
+    uploadUrl = uploadUrl || 'classes/patients';
     var fd = new FormData();
-    fd.append('file', file);
+    
+    // append each field to the FormData object
+    for(var field in fields) {
+      fd.append(field, fields[field]);
+    }
+    
     $http.post(uploadUrl, fd, {
       transformRequest: angular.identity,
       headers: {'Content-Type': undefined}
