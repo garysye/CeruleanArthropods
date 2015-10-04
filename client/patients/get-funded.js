@@ -1,23 +1,7 @@
 angular.module('eir.getFunded', [])
 
 
-// .directive('fileModel', function($parse) {
-//   return {
-//     restrict: 'A',
-//     link: function(scope, element, attrs) {
-//       var model = $parse(attrs.fileModel);
-//       var modelSetter = model.assign;
-
-//       element.bind('change', function() {
-//         scope.$apply(function() {
-//           modelSetter(scope, element[0].files[0]);
-//         });
-//       });
-//     }
-//   };
-// })
-
-.controller('getFundedCtrl', function ($scope, patientsFactory, fileUpload) {
+.controller('getFundedCtrl', function ($scope, patientsFactory, fileUpload, $location) {
 
   $scope.patient = {};
 
@@ -33,7 +17,15 @@ angular.module('eir.getFunded', [])
 
     // only submit if form is valid
     if(form.$valid) {
-      fileUpload.uploadFileToUrl($scope.patient);
+      fileUpload.uploadFileToUrl($scope.patient)
+        .then(function (res){
+          // redirect patient to their new page
+          $location.path('/donate/' + res.data.insertId);
+        })
+        .catch(function (err){
+          console.log('error adding patient', err);
+          // TODO: - handle mysql error and display info next to form inputs
+        })
     }
 
   }
