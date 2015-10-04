@@ -31,7 +31,6 @@ node_modules/
 bower_components/
 
 
-server/db/index.js
 
 server/uploads
 client/uploads
