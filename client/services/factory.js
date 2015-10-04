@@ -15,13 +15,6 @@ app.service('fileUpload', function($http) {
       return $http.post(uploadUrl, fd, {
         transformRequest: angular.identity,
         headers: {'Content-Type': undefined}
-      })
-      .success(function (res) {
-        return res;
-      })
-      .error(function (err) {
-        return err;
-
       });
 
     }
