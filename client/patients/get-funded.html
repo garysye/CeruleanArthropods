@@ -4,7 +4,7 @@
   <div class="row">
     
   
-  <form ng-submit="handleSubmit(patient)" enctype="multipart/form-data" class="css-form" novalidate>
+  <form name="patientForm" ng-submit="handleSubmit(patient)" enctype="multipart/form-data" class="css-form" novalidate>
     
     <div class="form-group">    
       <label for="First">First Name</label>
@@ -23,18 +23,18 @@
 
     <div class="form-group">
       <label for="Password">Password</label>
-      <input class="form-control" id="Password" type="text" ng-model="patient.password" name="password" placeholder="Password" required>
+      <input class="form-control" id="Password" type="password" ng-model="patient.password" name="password" placeholder="Password" required>
     </div>
 
     <div class="form-group">    
       <label for="Condition">Condition</label>
-      <input class="form-control" id="Condition" type="text" ng-model="patient.condition" name="condition" placeholder="Condition" required>
+      <input class="form-control" id="Condition" type="text" ng-model="patient.condition" name="condition" placeholder="Condition" >
     </div>
 
     <div class="form-group">
     
       <label for="Photo">Photo</label>
-      <input class="form-control" id="Photo" type="file" file-model="profilePic" ng-model="patient.photo" name="photo" placeholder="Photo Upload" required>
+      <input onchange="angular.element(this).scope().uploadFile(this)" class="form-control" id="Photo" type="file" file-model="profilePic" ng-model="patient.photo" name="photo" placeholder="Photo Upload">
     </div>
 
     <div class="form-group">
