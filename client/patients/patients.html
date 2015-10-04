@@ -10,7 +10,7 @@
     <div class="col-md-5 col-md-offset-1 patient" ng-repeat="patient in patients">
       <a ng-href="#/donate/{{patient.id}}">
         <h2>{{ patient.first_name }} {{ patient.last_name }}</h2>
-        <img class="img-responsive center-block img-circle" src="{{ patient.photo_url }}" alt="">
+        <img class="img-responsive center-block img-circle" ng-src="{{ patient.photo_url }}" alt="">
 
         <div>
           <div class="col-md-12 bg-info bio">
