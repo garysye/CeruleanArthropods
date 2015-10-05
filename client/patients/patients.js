@@ -1,12 +1,39 @@
 angular.module('eir.patients', [])
 
-.controller('patientsCtrl', function($scope, patientsFactory) {
+.controller('patientsCtrl', function ($scope, patientsFactory, conditionFactory, $q, $location) {
 
   $scope.patients;
+
+  $scope.go = function(id) {
+    $location.path('/donate/' + id);
+  };
+
+  $scope.getAllPatientsConditions = function(arrPatientObj) {
+    // create promise array
+    var conditionPromises = [];
+    for(var i=0; i < $scope.patients.length; i++) {
+      conditionPromises.push(conditionFactory.getCondition($scope.patients[i].condition_id));
+    }
+
+    // resolve all promises, then apply to scope
+    Promise.all(conditionPromises)
+      .then(function (res){
+        var index = 0;
+        while(res.length) {
+          var condition = res.shift()[0].condition_name;
+          $scope.patients[index++].condition_name = condition;
+        }
+        $scope.$apply();
+      });
+  };
 
   patientsFactory.getPatients()
   .then(function(res){
     $scope.patients = res;
+    return res;
+  })
+  .then(function (res){
+    $scope.getAllPatientsConditions();
   })
   .then(function(res){
     $scope.leftToFund();

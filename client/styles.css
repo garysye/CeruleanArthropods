@@ -49,6 +49,7 @@ div.patient {
   padding: 0;
   box-shadow: 2px 4px 7px 2px grey;
   margin-bottom: 2em;
+  cursor: pointer;
 }
 
 
