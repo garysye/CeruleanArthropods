@@ -134,3 +134,44 @@ app.factory('conditionFactory', function ($http) {
     getCondition: getCondition
   }
 });
+
+app.factory('authFactory', function ($http, $location, $window) {
+  var signin = function (user) {
+    return $http({
+      method: 'POST',
+      url: '/classes/users/signin',
+      data: user
+    })
+    .then(function (res) {
+      return res.data.token;
+    });
+  };
+
+  var signup = function (user) {
+    console.log('beep boop');
+    return $http({
+      method: 'POST',
+      url: '/classes/users/signup',
+      data: user
+    })
+    .then(function (res) {
+      return res.data.token;
+    });
+  };
+
+  var isAuth = function () {
+    return !!$window.localStorage.getItem('com.eir');
+  }
+
+  var signout = function () {
+    $window.localStorage.removeItem('com.eir');
+    $location.path('/signin');
+  }
+
+  return {
+    signin: signin,
+    signup: signup,
+    isAuth: isAuth,
+    signout: signout
+  }
+});
