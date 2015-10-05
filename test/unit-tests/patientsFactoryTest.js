@@ -1,13 +1,18 @@
-var expect = require('chai').expect;
-var assert = chai.assert;
-var should = chai.should();
-// console.log(__dirname)
-// var factory = require('../../client/services/factory.js')
+'use strict';
 
 describe('the patientsFactory', function() {
+  var patientsFactory, $httpBackend;
+
+  beforeEach(module('eir'));
+
+  beforeEach(inject(function ($injector) {
+    patientsFactory = $injector.get('patientsFactory');
+    $httpBackend = $injector.get('$httpBackend');
+  }));
+
   describe('submitPatientForm', function() {
-    it('should exist', function() {
-      assert.typeOf(factory.patientsFactory.submitPatientForm, 'function', 'submitPatientForm method should exist');
+    it('expect submitPatientForm to exist', function() {
+      expect(patientsFactory.submitPatientForm).to.be.a('function');
     });
   });
 
