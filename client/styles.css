@@ -287,3 +287,11 @@ input {
   margin-left: 20px;
 }
 
+.progress-meter .background {
+  fill: #ccc;
+}
+
+.progress-meter .foreground {
+  fill: #000;
+}
+
