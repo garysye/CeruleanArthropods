@@ -275,5 +275,15 @@ input {
   color: white;
 }
 
+.more-about-patient {
+  margin-left: 70px;
+}
 
+.patient-photo {
+  margin-left: 50px;
+}
+
+.patient-progress {
+  margin-left: 20px;
+}
 

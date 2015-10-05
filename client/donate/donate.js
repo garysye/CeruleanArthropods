@@ -10,6 +10,15 @@ angular.module('eir.donate', ['ngRoute'])
     .then(function(res) {
       $scope.patient = res[0];
       $scope.getConditionName();
+
+      console.log($scope.patient);
+      
+      if($scope.patient.progress === 0) {
+        $scope.text = "Be the first to donate towards " + $scope.patient.first_name + "'s cause!";
+      } else {
+        $scope.text = "Let's reach " + $scope.patient.first_name + "'s goal!";
+      }
+    
     })
     .catch(function(err) {
       console.log('ERROR patientsFactory.getPatient: ' + err);
@@ -27,7 +36,6 @@ angular.module('eir.donate', ['ngRoute'])
       });
   };
 
-
   // on form submit, send the new donor info to the server; POST req
   $scope.handleSubmit = function(newDonor) {
     newDonor.patient_id = $routeParams.id;
@@ -41,4 +49,6 @@ angular.module('eir.donate', ['ngRoute'])
         console.log('ERROR donorsFactory.submitDonationForm: ', err)
       });
   };
+
+
 });
