@@ -10,6 +10,34 @@ angular.module('eir.donate', ['ngRoute'])
     .then(function(res) {
       $scope.patient = res[0];
       $scope.getConditionName();
+
+      console.log($scope.patient);
+      
+      if($scope.patient.progress === 0) {
+        $scope.text = "Be the first to donate towards " + $scope.patient.first_name + "'s cause!";
+      } else {
+        $scope.text = "Let's reach " + $scope.patient.first_name + "'s goal!";
+      }
+
+      var width = 300,
+      height = 300,
+      twoPi = 2 * Math.PI,
+      progress = 0,
+      formatPercent = d3.format(".0%");
+
+      d3.selectAll('.patient-progress')
+      .append('svg')
+      .attr("width", width)
+      .attr("height", height)
+      .append("g")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+
+      var meter = svg.append("g")
+      .attr("class", "progress-meter");
+
+
+    
     })
     .catch(function(err) {
       console.log('ERROR patientsFactory.getPatient: ' + err);
@@ -27,7 +55,6 @@ angular.module('eir.donate', ['ngRoute'])
       });
   };
 
-
   // on form submit, send the new donor info to the server; POST req
   $scope.handleSubmit = function(newDonor) {
     newDonor.patient_id = $routeParams.id;
@@ -41,4 +68,6 @@ angular.module('eir.donate', ['ngRoute'])
         console.log('ERROR donorsFactory.submitDonationForm: ', err)
       });
   };
+
+
 });
