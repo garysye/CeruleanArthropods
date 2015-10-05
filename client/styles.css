@@ -32,9 +32,8 @@ nav.navbar {
   background-color: white;
 }
 
-
 .patient-header {
-  background-image: url('eir.jpg');
+  background-image: url('eir.JPG');
   background-position: center center;
   background-size: cover;
   height: 200px;
@@ -90,7 +89,7 @@ div.bio {
 .donate-wrapper .donate-box {
   -moz-border-radius: 7px 7px 7px 7px;
   float: left;
-  margin: 10px;
+  margin: 0px;
   min-height:100px;
   padding:5px;
   width: 450px;
@@ -291,13 +290,12 @@ input {
 
 .patient-progress {
   margin-left: 20px;
+  width: 300px;
+  height: 300px;
 }
 
-.progress-meter .background {
-  fill: #ccc;
-}
-
-.progress-meter .foreground {
-  fill: #000;
+.progressbar-text {
+  font-size: 50px;
+  text-align: center;
 }
 

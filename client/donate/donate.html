@@ -5,55 +5,49 @@
 </header>
 
 <div class="donate-wrapper row">
-  <section class="donate-box">
-
-    <img class="patient-photo" ng-src="{{patient.photo_url}}" width="400px" height="400px"> 
-    <!-- <ul>
-      <li><b>Patient id:</b> {{ patient.id }}</li>
-      <li><b>Patient username:</b> {{ patient.username }}</li>
-      <li><b>Patient first_name:</b> {{ patient.first_name }}</li>
-      <li><b>Patient last_name:</b> {{ patient.last_name }}</li>
-      <li><b>Patient bio:</b> {{ patient.bio }}</li>
-      <li><b>Patient goal:</b> {{ patient.goal }}</li>
-      <li><b>Patient progress:</b> {{ patient.progress }}</li>
-      <li><b>Patient funded:</b> {{ patient.funded }}</li>
-      <li><b>Patient condition_id:</b> {{ patient.condition_id }}</li>
-      <li><b>Patient photo_id:</b> {{ patient.photo_id }}</li>
-    </ul> -->
-  </section>
-
-  <section class="donate-box form-group">
-
-    <div class="patient-progress">
-      <h3>${{ patient.progress }} raised, ${{ patient.goal }} to go</h3>
-      <h4>{{text}}</h4>
-    </div>
-
-    <form ng-submit=handleSubmit(donor) class="form-group checkout" novalidate>
-      <div class="checkout-header">
-        <h1 class="checkout-title">
-          Complete Your Donation
-        </h1>
+  <div class="col-md-6">
+    <section class="donate-box">
+      <img class="patient-photo" ng-src="{{patient.photo_url}}" width="400px" height="400px"> 
+    </section>
+  </div>
+  <div class="col-md-6">
+    <section>
+      <div class="patient-progress">
+        <h3>${{ patient.progress }} raised, ${{ patient.goal }} to go</h3>
+        <h4>{{text}}</h4>
       </div>
-      <p>
-        <input type="text" ng-model="donor.donor_first_name" name="first_name" class="checkout-input checkout-name" placeholder="First Name" autofocus>
-        <input type="text" ng-model="donor.donor_last_name" name="last_name" class="checkout-input checkout-name" placeholder="Last Name" autofocus>
-        <input type="text" ng-model="donor.donor_email" name="email" class="checkout-input checkout-email" placeholder="Email Address" autofocus>
-        <input type="number" ng-model="donor.amount" name="amount" class="checkout-input checkout-amount" placeholder="Donation Amount" autofocus>
-        <input type="text" ng-model="cc" name="cc" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111">
-        <input type="text" ng-model="mm" name="mm" class="checkout-input checkout-exp" placeholder="MM">
-        <input type="text" ng-model="yy" name="yy" class="checkout-input checkout-exp" placeholder="YY">
-        <input type="text" ng-model="cvc" name="cvc" class="checkout-input checkout-cvc" placeholder="CVC">
-      </p>
-      <p>
-        <input type="submit" value="Donate" class="btn btn-default btn-block btn-primary">
-      </p>
-    </form>
-  </section>
+    </section>
+  </div>
 </div>
 <div class="row">
-  <section class="more-about-patient">
-    <h3>{{ patient.first_name }}'s Story</h3>
-    {{ patient.bio }}
-  </section>
+  <div class="col-md-6">
+    <section class="more-about-patient">
+      <h3>{{ patient.first_name }}'s Story</h3>
+      {{ patient.bio }}
+    </section>
+  </div>
+  <div class="col-md-6">
+    <section class="donate-box form-group">
+      <form ng-submit=handleSubmit(donor) class="form-group checkout" novalidate>
+        <div class="checkout-header">
+          <h1 class="checkout-title">
+            Complete Your Donation
+          </h1>
+        </div>
+        <p>
+          <input type="text" ng-model="donor.donor_first_name" name="first_name" class="checkout-input checkout-name" placeholder="First Name" autofocus>
+          <input type="text" ng-model="donor.donor_last_name" name="last_name" class="checkout-input checkout-name" placeholder="Last Name" autofocus>
+          <input type="text" ng-model="donor.donor_email" name="email" class="checkout-input checkout-email" placeholder="Email Address" autofocus>
+          <input type="number" ng-model="donor.amount" name="amount" class="checkout-input checkout-amount" placeholder="Donation Amount" autofocus>
+          <input type="text" ng-model="cc" name="cc" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111">
+          <input type="text" ng-model="mm" name="mm" class="checkout-input checkout-exp" placeholder="MM">
+          <input type="text" ng-model="yy" name="yy" class="checkout-input checkout-exp" placeholder="YY">
+          <input type="text" ng-model="cvc" name="cvc" class="checkout-input checkout-cvc" placeholder="CVC">
+        </p>
+        <p>
+          <input type="submit" value="Donate" class="btn btn-default btn-block btn-primary">
+        </p>
+      </form>
+    </section>
+  </div>
 </div>
