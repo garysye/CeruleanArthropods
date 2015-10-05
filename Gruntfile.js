@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-karma');
 
-  // grunt.registerTask('default', ['karma']);
+  grunt.registerTask('default', ['karma']);
   
   // Load the plugin that provides the "uglify" task.
   // grunt.loadNpmTasks('grunt-contrib-uglify');
