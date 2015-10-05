@@ -1,39 +1,42 @@
 <br>
 <br>
 <div class="container col-md-6 col-md-offset-3">
-  <div class="row">
+  <!-- <div class="row"> -->
     
   
-  <form name="patientForm" ng-submit="handleSubmit(patient)" enctype="multipart/form-data" class="css-form" novalidate>
+  <form name="patientForm" ng-submit="handleSubmit(patient)" enctype="multipart/form-data" class="css-form form-horizontal" novalidate>
     
     <div class="form-group">    
-      <label for="First">First Name</label>
+      <label class="control-label" for="First">First Name</label>
       <input class="form-control" id="First" type="text" ng-model="patient.first_name" name="first_name" placeholder="First" required>
     </div>
 
     <div class="form-group">
-      <label for="Last">Last Name</label>
+      <label class="control-label" for="Last">Last Name</label>
       <input class="form-control" id="Last" type="text" ng-model="patient.last_name" name="last_name" placeholder="Last" required>
     </div>
 
-    <div class="form-group">
-      <label for="Email">Email</label>
+    <div class="form-group" ng-class="{'has-error': patientForm.email.$error.inuse }">
+      <label class="control-label" for="Email">Email</label>
       <input class="form-control" id="Email" type="email" ng-model="patient.email" name="email" placeholder="Email" required>
+      <div class="controls warning">
+        <div class="help-block" ng-show="patientForm.email.$error.inuse">Sorry this username is taken</div>
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="Password">Password</label>
+      <label class="control-label" for="Password">Password</label>
       <input class="form-control" id="Password" type="password" ng-model="patient.password" name="password" placeholder="Password" required>
     </div>
 
     <div class="form-group">    
-      <label for="Condition">Condition</label>
+      <label class="control-label" for="Condition">Condition</label>
       <input class="form-control" id="Condition" type="text" ng-model="patient.condition" name="condition" placeholder="Condition" >
     </div>
 
     <div class="form-group">
     
-      <label for="Photo">Photo</label>
+      <label class="control-label" for="Photo">Photo</label>
       <input onchange="angular.element(this).scope().uploadFile(this)" class="form-control" id="Photo" type="file" file-model="profilePic" ng-model="patient.photo" name="photo" placeholder="Photo Upload">
     </div>
 
@@ -53,5 +56,5 @@
 
 
   </form>
-  </div>
+  <!-- </div> -->
 </div>

@@ -10,6 +10,13 @@ angular.module('eir.getFunded', [])
     $scope.patient.photo = file;
   };
 
+  $scope.handleInvalidUsername = function() {
+    // set property on error object to inuse
+    $scope.patientForm.email.$setValidity('inuse', false);
+    // reset form in prestine condition
+    $scope.patientForm.email.$setPristine();
+  };
+
   // when patient clicks submit button when they sign up
   $scope.handleSubmit = function(newPatient) {
     var form = $scope.patientForm;
@@ -22,9 +29,11 @@ angular.module('eir.getFunded', [])
           $location.path('/donate/' + res.data.insertId);
         })
         .catch(function (err, res){
-          // error adding new patient
-          console.log('error adding patient', err);
-          // TODO: - handle mysql error and display info next to form inputs
+          // ** error adding new patient
+          // send to username handler
+          $scope.handleInvalidUsername();
+
+          // TODO: - add different error handling routes
         })
     }
 
