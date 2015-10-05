@@ -26,6 +26,9 @@ nav.navbar {
   margin-bottom: 0;
 }
 
+.navbar-bg {
+  background-color: white;
+}
 
 /* PATIENT PAGE */
 .patients-background {
@@ -66,9 +69,6 @@ div.bio {
 
 }
 
-
-
-
 .css-form {
   margin-bottom: 5em;
 }
@@ -81,11 +81,6 @@ div.bio {
   background-color: #78FA89;
 }
 
-
-
-
-
-
 .donate-wrapper .donate-box {
   -moz-border-radius: 7px 7px 7px 7px;
   float: left;
@@ -94,8 +89,6 @@ div.bio {
   padding:5px;
   width: 450px;
 }
-
-
 
 .checkout {
   width: 400px;
@@ -282,6 +275,7 @@ input {
 
 .more-about-patient {
   margin-left: 70px;
+  margin-right: 100px;
 }
 
 .patient-photo {
