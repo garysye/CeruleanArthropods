@@ -5,6 +5,7 @@ angular.module('eir.donate', ['ngRoute'])
   $scope.patient = {};
   $scope.donor = {};
 
+
   // this will allow you to display patient info on the donate page
   patientsFactory.getPatient($routeParams.id)
     .then(function(res) {
@@ -19,24 +20,10 @@ angular.module('eir.donate', ['ngRoute'])
         $scope.text = "Let's reach " + $scope.patient.first_name + "'s goal!";
       }
 
-      var width = 300,
-      height = 300,
-      twoPi = 2 * Math.PI,
-      progress = 0,
-      formatPercent = d3.format(".0%");
+      $scope.decimalProgress = $scope.patient.progress/$scope.patient.goal;
+      $scope.percentProgress = ($scope.patient.progress/$scope.patient.goal)*100;
 
-      d3.selectAll('.patient-progress')
-      .append('svg')
-      .attr("width", width)
-      .attr("height", height)
-      .append("g")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-
-      var meter = svg.append("g")
-      .attr("class", "progress-meter");
-
-
+      $scope.progressBar();
     
     })
     .catch(function(err) {
@@ -68,6 +55,47 @@ angular.module('eir.donate', ['ngRoute'])
         console.log('ERROR donorsFactory.submitDonationForm: ', err)
       });
   };
+
+
+  // D3 STUFF
+
+  $scope.progressBar = function() {
+
+    var circle = new ProgressBar.Circle('.patient-progress', {
+      color: '#FCB03C',
+      trailColor: '#fff68f',
+      strokeWidth: 3,
+      trailWidth: 5,
+      fill: '#FFFFFF',
+      svgStyle: {
+        display: 'block',
+        // width: 100%
+      },
+      text: {
+        value: $scope.percentProgress + '% funded',
+        style: {
+            // Text color.
+            // Default: same as stroke color (options.color)
+            color: '#f00',
+            position: 'absolute',
+            left: '50%',
+            top: '70%',
+            padding: 0,
+            // margin: auto,
+            // You can specify styles which will be browser prefixed
+            transform: {
+                prefix: true,
+                value: 'translate(-50%, -50%)'
+            }
+        },
+        // alignToBottom: true
+      }
+
+    });
+
+    circle.animate($scope.decimalProgress);
+
+  }
 
 
 });

@@ -26,15 +26,17 @@ nav.navbar {
   margin-bottom: 0;
 }
 
+.navbar-bg {
+  background-color: white;
+}
 
 /* PATIENT PAGE */
 .patients-background {
   background-color: white;
 }
 
-
 .patient-header {
-  background-image: url('eir.jpg');
+  background-image: url('eir.JPG');
   background-position: center center;
   background-size: cover;
   height: 200px;
@@ -67,9 +69,6 @@ div.bio {
 
 }
 
-
-
-
 .css-form {
   margin-bottom: 5em;
 }
@@ -82,21 +81,14 @@ div.bio {
   background-color: #78FA89;
 }
 
-
-
-
-
-
 .donate-wrapper .donate-box {
   -moz-border-radius: 7px 7px 7px 7px;
   float: left;
-  margin: 10px;
+  margin: 0px;
   min-height:100px;
   padding:5px;
   width: 450px;
 }
-
-
 
 .checkout {
   width: 400px;
@@ -283,6 +275,7 @@ input {
 
 .more-about-patient {
   margin-left: 70px;
+  margin-right: 100px;
 }
 
 .patient-photo {
@@ -291,13 +284,12 @@ input {
 
 .patient-progress {
   margin-left: 20px;
+  width: 300px;
+  height: 300px;
 }
 
-.progress-meter .background {
-  fill: #ccc;
-}
-
-.progress-meter .foreground {
-  fill: #000;
+.progressbar-text {
+  font-size: 50px;
+  text-align: center;
 }
 
