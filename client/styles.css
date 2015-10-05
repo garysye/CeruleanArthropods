@@ -14,16 +14,12 @@
 }
 
 .home-button {
- 
-   /*position: absolute; 
-   left: 50%;
-   bottom: 100px;
-   height: 60px;
-   width: 300px;
-   border-radius: 5px;
-   font-size: 20px;
-   display: inline-block;*/
+
    margin-top: 2em;
+}
+
+nav.navbar {
+  margin-bottom: 0;
 }
 
 .patients-background {
