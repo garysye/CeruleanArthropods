@@ -1,6 +1,6 @@
-# Project Name
+# Eir
 
-> Pithy project description
+> Eir is a crowdsourcing platform for raising money for patients who lack financial access to important medical treatments for critical conditions.  Together, we can come together and fund treatments to directly improve the health of people in need.
 
 ## Team
 
@@ -14,21 +14,25 @@
 1. [Requirements](#requirements)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
+    1. [Roadmap](#roadmap)
 1. [Team](#team)
 1. [Contributing](#contributing)
 
 ## Usage
 
-> Some usage instructions
+Start the server by using node on the command line. By default, the server uses port 3000.
+```sh
+node server/server.js
+```
+
+If you are looking to donate, navigate to the Patients page to view the patients with active projects.  You can donate to a specific patient by clicking on them.  Complete the donation form and submit to a donation page.  Payment is not yet available so don't worry about adding a legitimate credit card.
+
+If you are looking to add a new patient who needs funding, navigate to the Get Funded page and fill out the form to submit and create a new patient if the inputed data is valid.
 
 ## Requirements
 
 - Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Mysql 5.6.x
 
 ## Development
 
@@ -44,7 +48,7 @@ bower install
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap [here](ROADMAP.md).
 
 
 ## Contributing
