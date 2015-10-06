@@ -20,7 +20,7 @@ angular.module('eir.donate', ['ngRoute'])
         }
 
         $scope.decimalProgress = $scope.patient.progress/$scope.patient.goal;
-        $scope.percentProgress = ($scope.patient.progress/$scope.patient.goal)*100;
+        $scope.percentProgress = Math.round(($scope.patient.progress/$scope.patient.goal)*100);
 
         $scope.progressBar();
       
@@ -84,9 +84,9 @@ angular.module('eir.donate', ['ngRoute'])
             // Text color.
             // Default: same as stroke color (options.color)
             color: '#f00',
-            position: 'absolute',
+            position: 'relative',
             left: '50%',
-            top: '0%',
+            top: '-50%',
             padding: 0,
             // margin: auto,
             // You can specify styles which will be browser prefixed
@@ -100,7 +100,7 @@ angular.module('eir.donate', ['ngRoute'])
 
     });
 
-    circle.animate($scope.decimalProgress);
+    $scope.circle.animate($scope.decimalProgress);
   }
 
 });
