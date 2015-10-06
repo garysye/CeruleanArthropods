@@ -5,30 +5,32 @@ angular.module('eir.donate', ['ngRoute'])
   $scope.patient = {};
   $scope.donor = {};
 
-
   // this will allow you to display patient info on the donate page
-  patientsFactory.getPatient($routeParams.id)
-    .then(function(res) {
-      $scope.patient = res[0];
-      $scope.getConditionName();
 
-      console.log($scope.patient);
+  $scope.getPatients = function() {
+    patientsFactory.getPatient($routeParams.id)
+      .then(function(res) {
+        $scope.patient = res[0];
+        $scope.getConditionName();
+        
+        if($scope.patient.progress === 0) {
+          $scope.text = "Be the first to donate towards " + $scope.patient.first_name + "'s cause!";
+        } else {
+          $scope.text = "Let's reach " + $scope.patient.first_name + "'s goal!";
+        }
+
+        $scope.decimalProgress = $scope.patient.progress/$scope.patient.goal;
+        $scope.percentProgress = ($scope.patient.progress/$scope.patient.goal)*100;
+
+        $scope.progressBar();
       
-      if($scope.patient.progress === 0) {
-        $scope.text = "Be the first to donate towards " + $scope.patient.first_name + "'s cause!";
-      } else {
-        $scope.text = "Let's reach " + $scope.patient.first_name + "'s goal!";
-      }
+      })
+      .catch(function(err) {
+        console.log('ERROR patientsFactory.getPatient: ' + err);
+      });
+  }
 
-      $scope.decimalProgress = $scope.patient.progress/$scope.patient.goal;
-      $scope.percentProgress = ($scope.patient.progress/$scope.patient.goal)*100;
-
-      $scope.progressBar();
-    
-    })
-    .catch(function(err) {
-      console.log('ERROR patientsFactory.getPatient: ' + err);
-    });
+  $scope.getPatients();
 
   // called after patient reocrd is returned. condtion is in a seperate table 
   $scope.getConditionName = function() {
@@ -50,6 +52,9 @@ angular.module('eir.donate', ['ngRoute'])
       .then(function(res) {
         $scope.donor = {};
 
+        $scope.getPatients();
+        $scope.thankYou = "Thank you!"
+
       })
       .catch(function(err) {
         console.log('ERROR donorsFactory.submitDonationForm: ', err)
@@ -61,7 +66,9 @@ angular.module('eir.donate', ['ngRoute'])
 
   $scope.progressBar = function() {
 
-    var circle = new ProgressBar.Circle('.patient-progress', {
+    $scope.circle && $scope.circle.destroy();
+
+    $scope.circle = new ProgressBar.Circle('.patient-progress', {
       color: '#FCB03C',
       trailColor: '#fff68f',
       strokeWidth: 3,
@@ -79,7 +86,7 @@ angular.module('eir.donate', ['ngRoute'])
             color: '#f00',
             position: 'absolute',
             left: '50%',
-            top: '70%',
+            top: '0%',
             padding: 0,
             // margin: auto,
             // You can specify styles which will be browser prefixed
@@ -94,8 +101,6 @@ angular.module('eir.donate', ['ngRoute'])
     });
 
     circle.animate($scope.decimalProgress);
-
   }
-
 
 });
